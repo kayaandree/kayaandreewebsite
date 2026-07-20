@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Title Font Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Reenie+Beanie&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --white: #ffffff;
+    --ink: #141414;
+    --ink-soft: rgba(20, 20, 20, 0.6);
+    --accent: #c2447a;
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  }
+  header {
+    padding: 3rem var(--gutter) 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  header .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  header h1 {
+    margin: 0.6rem 0 0.4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .card {
+    padding: 2.6rem var(--gutter);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .card .name {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+  }
+  .card .sample {
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    color: var(--ink);
+    max-width: 20ch;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="eyebrow">Writing page title test</span>
+  <h1>Same headline, three fonts</h1>
+</header>
+
+<div class="card">
+  <span class="name">Currently on the site — Nothing You Could Do</span>
+  <div class="sample" style="font-family:'Nothing You Could Do', cursive;">Women's Role in Climate Adaptation and Agricultural Innovation in Vietnam</div>
+</div>
+
+<div class="card">
+  <span class="name">Give You Glory</span>
+  <div class="sample" style="font-family:'Give You Glory', cursive;">Women's Role in Climate Adaptation and Agricultural Innovation in Vietnam</div>
+</div>
+
+<div class="card">
+  <span class="name">Reenie Beanie</span>
+  <div class="sample" style="font-family:'Reenie Beanie', cursive;">Women's Role in Climate Adaptation and Agricultural Innovation in Vietnam</div>
+</div>
+
+</body>
+</html>

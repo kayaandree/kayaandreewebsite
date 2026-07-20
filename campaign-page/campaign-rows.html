@@ -1,0 +1,314 @@
+<!--
+  CAMPAIGN ROWS — one row per campaign:
+  [story phone]  [newsletter phone]  [case study text]
+
+  Reads everything from campaigns.json, so adding a new campaign later is
+  just: add one object to that file (with its own newsletter file, story
+  photo paths, and case study text) — this file never needs editing again.
+
+  SWAPPING IN REAL STORY PHOTOS
+  Each campaign in campaigns.json has a "stories" array of image paths.
+  Right now they're placeholder images. Once you have real photos:
+    1. Make a folder like stories/essentials/ and number your photos
+       1.jpg, 2.jpg, 3.jpg...
+    2. Update that campaign's "stories" array in campaigns.json to point
+       at stories/essentials/1.jpg, stories/essentials/2.jpg, etc.
+
+  RESPONSIVE BEHAVIOR
+  On wide screens, each row is [story] [newsletter] [text] side by side.
+  Below 900px, it stacks vertically (story on top, then newsletter, then
+  text) so nothing gets squished on phones. Adjust the 900px breakpoint
+  or the phone size in the CSS below if you want a different cutoff.
+
+  Hand this whole folder to Claude Code and say: "integrate this campaign
+  section into my marketing page, keep the campaigns.json-driven structure."
+-->
+
+<section class="camp-page">
+  <div class="camp-rows" id="camp-rows"></div>
+</section>
+
+<style>
+  .camp-page {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .camp-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .camp-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .camp-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  /* --- shared phone frame --- */
+  .phone {
+    width: 240px;
+    height: 500px;
+    background: #111;
+    border-radius: 38px;
+    padding: 11px;
+    position: relative;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 20px 40px rgba(0, 0, 0, 0.18);
+    flex-shrink: 0;
+  }
+
+  .phone::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 84px;
+    height: 16px;
+    background: #111;
+    border-radius: 0 0 12px 12px;
+    z-index: 3;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 27px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .phone-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* --- story-specific bits --- */
+  .story-bars {
+    position: absolute;
+    top: 9px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    gap: 4px;
+    z-index: 2;
+  }
+
+  .story-bar {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+  }
+
+  .story-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  .story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #000;
+  }
+
+  .story-tap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .story-tap-left { left: 0; }
+  .story-tap-right { right: 0; }
+
+  /* --- case study column --- */
+  .case-study {
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .case-step {
+    padding-left: 14px;
+    border-left: 2px solid #ddd;
+  }
+
+  .case-step-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #6b6b68;
+    margin: 0 0 4px;
+  }
+
+  .case-step-text {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #2a2a26;
+    margin: 0;
+  }
+
+  /* --- responsive: stack on narrower screens --- */
+  @media (max-width: 900px) {
+    .camp-row {
+      flex-direction: column;
+    }
+    .case-study {
+      max-width: 100%;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .phone { width: 200px; height: 420px; }
+  }
+</style>
+
+<script>
+  const MANIFEST_PATH = "campaigns.json";
+  const STORY_DURATION = 5000; // ms per story slide
+
+  function buildStoryPhone(slides) {
+    const wrap = document.createElement("div");
+    wrap.className = "phone";
+
+    const screen = document.createElement("div");
+    screen.className = "phone-screen";
+
+    const bars = document.createElement("div");
+    bars.className = "story-bars";
+    const fills = slides.map(() => {
+      const bar = document.createElement("div");
+      bar.className = "story-bar";
+      const fill = document.createElement("div");
+      fill.className = "story-bar-fill";
+      bar.appendChild(fill);
+      bars.appendChild(bar);
+      return fill;
+    });
+
+    const img = document.createElement("img");
+    img.className = "story-img";
+
+    const tapLeft = document.createElement("div");
+    tapLeft.className = "story-tap story-tap-left";
+    const tapRight = document.createElement("div");
+    tapRight.className = "story-tap story-tap-right";
+
+    screen.append(bars, img, tapLeft, tapRight);
+    wrap.appendChild(screen);
+
+    let current = 0;
+    let timer = null;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      img.src = slides[current];
+
+      fills.forEach((fill, i) => {
+        fill.style.transition = "none";
+        fill.style.width = i < current ? "100%" : "0%";
+      });
+
+      void fills[current].offsetWidth;
+      fills[current].style.transition = `width ${STORY_DURATION}ms linear`;
+      fills[current].style.width = "100%";
+
+      clearTimeout(timer);
+      timer = setTimeout(() => showSlide(current + 1), STORY_DURATION);
+    }
+
+    tapRight.addEventListener("click", () => showSlide(current + 1));
+    tapLeft.addEventListener("click", () => showSlide(current - 1));
+
+    showSlide(0);
+    return wrap;
+  }
+
+  function buildNewsletterPhone(file) {
+    const wrap = document.createElement("div");
+    wrap.className = "phone";
+
+    const screen = document.createElement("div");
+    screen.className = "phone-screen";
+
+    const iframe = document.createElement("iframe");
+    iframe.src = file;
+    iframe.loading = "lazy";
+
+    screen.appendChild(iframe);
+    wrap.appendChild(screen);
+    return wrap;
+  }
+
+  function buildCaseStudy(steps) {
+    const wrap = document.createElement("div");
+    wrap.className = "case-study";
+
+    steps.forEach((step) => {
+      const stepEl = document.createElement("div");
+      stepEl.className = "case-step";
+      stepEl.innerHTML = `
+        <p class="case-step-label">${step.label}</p>
+        <p class="case-step-text">${step.text}</p>
+      `;
+      wrap.appendChild(stepEl);
+    });
+
+    return wrap;
+  }
+
+  fetch(MANIFEST_PATH)
+    .then((res) => res.json())
+    .then((campaigns) => {
+      const container = document.getElementById("camp-rows");
+
+      campaigns.forEach((camp) => {
+        const section = document.createElement("div");
+
+        const title = document.createElement("div");
+        title.className = "camp-title";
+        title.textContent = camp.title;
+
+        const row = document.createElement("div");
+        row.className = "camp-row";
+        row.appendChild(buildStoryPhone(camp.stories));
+        row.appendChild(buildNewsletterPhone(camp.newsletter));
+        row.appendChild(buildCaseStudy(camp.caseStudy));
+
+        section.appendChild(title);
+        section.appendChild(row);
+        container.appendChild(section);
+      });
+    })
+    .catch((err) => {
+      console.error("Couldn't load campaigns.json:", err);
+    });
+</script>

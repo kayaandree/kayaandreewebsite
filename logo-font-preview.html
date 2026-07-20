@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Font Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Kalam:wght@300&family=Homemade+Apple&family=Shadows+Into+Light&family=Reenie+Beanie&family=Just+Another+Hand&family=Gochi+Hand&family=Marck+Script&family=Style+Script&family=La+Belle+Aurore&family=Give+You+Glory&family=Beau+Rivage&family=Waiting+for+the+Sunrise&family=Petit+Formal+Script&family=Mrs+Saint+Delafield&family=Yellowtail&family=Meddon&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --white: #ffffff;
+    --ink: #141414;
+    --ink-soft: rgba(20, 20, 20, 0.6);
+    --accent: #c2447a;
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  }
+  header {
+    padding: 3rem var(--gutter) 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  header .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  header h1 {
+    margin: 0.6rem 0 0.4rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  header p {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    font-size: 0.95rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+  .card {
+    padding: 2.2rem var(--gutter);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+  .card .name {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-bottom: 0.9rem;
+  }
+  .card .sample {
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  .card.on-dark {
+    background: #141414;
+  }
+  .card.on-dark .sample { color: #fff; }
+  .card.on-dark .name { color: rgba(255,255,255,0.5); }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="eyebrow">Logo type test</span>
+  <h1>"Kaya Andrée" — pick a direction</h1>
+  <p>Thin, handwriting-style, freestyle/unique options. Same phrase, same size, so you can compare shape and personality directly. Tell me the name (or number) you like and I'll wire it into the site.</p>
+</header>
+
+<div class="grid">
+  <div class="card"><span class="name">1 — Caveat</span><div class="sample" style="font-family:'Caveat', cursive; font-weight:500;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">2 — Kalam Light</span><div class="sample" style="font-family:'Kalam', cursive; font-weight:300;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">3 — Homemade Apple</span><div class="sample" style="font-family:'Homemade Apple', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">4 — Shadows Into Light</span><div class="sample" style="font-family:'Shadows Into Light', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">5 — Reenie Beanie</span><div class="sample" style="font-family:'Reenie Beanie', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">6 — Just Another Hand</span><div class="sample" style="font-family:'Just Another Hand', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">7 — Gochi Hand</span><div class="sample" style="font-family:'Gochi Hand', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">8 — Marck Script</span><div class="sample" style="font-family:'Marck Script', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">9 — Style Script</span><div class="sample" style="font-family:'Style Script', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">10 — La Belle Aurore</span><div class="sample" style="font-family:'La Belle Aurore', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">11 — Give You Glory</span><div class="sample" style="font-family:'Give You Glory', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">12 — Beau Rivage</span><div class="sample" style="font-family:'Beau Rivage', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">13 — Waiting for the Sunrise</span><div class="sample" style="font-family:'Waiting for the Sunrise', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">14 — Petit Formal Script</span><div class="sample" style="font-family:'Petit Formal Script', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">15 — Mrs Saint Delafield</span><div class="sample" style="font-family:'Mrs Saint Delafield', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">16 — Yellowtail</span><div class="sample" style="font-family:'Yellowtail', cursive;">Kaya Andrée</div></div>
+  <div class="card"><span class="name">17 — Meddon</span><div class="sample" style="font-family:'Meddon', cursive;">Kaya Andrée</div></div>
+</div>
+
+<div class="grid">
+  <div class="card on-dark"><span class="name">1 — Caveat (on dark)</span><div class="sample" style="font-family:'Caveat', cursive; font-weight:500;">Kaya Andrée</div></div>
+  <div class="card on-dark"><span class="name">7 — Gochi Hand (on dark)</span><div class="sample" style="font-family:'Gochi Hand', cursive;">Kaya Andrée</div></div>
+  <div class="card on-dark"><span class="name">9 — Style Script (on dark)</span><div class="sample" style="font-family:'Style Script', cursive;">Kaya Andrée</div></div>
+  <div class="card on-dark"><span class="name">12 — Beau Rivage (on dark)</span><div class="sample" style="font-family:'Beau Rivage', cursive;">Kaya Andrée</div></div>
+</div>
+
+</body>
+</html>

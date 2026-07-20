@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Preview</title>
+
+<style>
+  @font-face {
+    font-family: "Climate Crisis";
+    src: url("Fonts/Climate_Crisis/ClimateCrisis-Regular-VariableFont_YEAR.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "BBH Bartle";
+    src: url("Fonts/BBH_Bartle/BBHBartle-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Jura";
+    src: url("Fonts/Jura/Jura-VariableFont_wght.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Italiana";
+    src: url("Fonts/Italiana/Italiana-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Rock Salt";
+    src: url("Fonts/Rock_Salt/RockSalt-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Nothing You Could Do";
+    src: url("Fonts/Nothing_You_Could_Do/NothingYouCouldDo-Regular.ttf") format("truetype");
+  }
+
+  :root {
+    --white: #ffffff;
+    --teal: #b5583a;
+    --teal-soft: rgba(181, 88, 58, 0.12);
+    --dark-teal: #2a1810;
+    --dark-teal-soft: rgba(42, 24, 16, 0.75);
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--dark-teal);
+    font-family: 'Times New Roman', serif;
+  }
+
+  .intro {
+    padding: 3rem var(--gutter) 1.5rem;
+    border-bottom: 1px solid var(--teal-soft);
+  }
+
+  .intro .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  .intro h1 {
+    margin: 0.8rem 0 0.4rem;
+    font-size: 1.8rem;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--dark-teal-soft);
+    max-width: 60ch;
+  }
+
+  .compare-section {
+    padding: 3rem var(--gutter);
+    border-bottom: 1px solid var(--teal-soft);
+  }
+
+  .compare-section .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .compare-grid.cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .compare-grid.cols-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .pick-badge {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    padding: 0.2rem 0.7rem;
+  }
+
+  .compare-card {
+    border: 1px solid var(--teal-soft);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .compare-card .option-name {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-teal-soft);
+  }
+
+  /* --- logo mockups --- */
+  .logo-sample {
+    font-size: 2.6rem;
+    color: var(--dark-teal);
+  }
+
+  .logo-sample.climate { font-family: "Climate Crisis", sans-serif; }
+  .logo-sample.bartle { font-family: "BBH Bartle", sans-serif; }
+  .logo-sample.futura { font-family: "Futura", sans-serif; }
+  .logo-sample.rocksalt { font-family: "Rock Salt", cursive; }
+  .logo-sample.nycd { font-family: "Nothing You Could Do", cursive; }
+
+  .header-mock {
+    width: 100%;
+    padding: 1.4rem 1.6rem;
+    background: var(--dark-teal);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-mock .logo-sample {
+    font-size: 1.9rem;
+    color: var(--white);
+  }
+
+  .header-mock nav {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .header-mock nav span {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* --- menu/body mockups --- */
+  .menu-sample {
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-sample span {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark-teal);
+  }
+
+  .body-sample {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--dark-teal-soft);
+    max-width: 42ch;
+  }
+
+  .jura .menu-sample span,
+  .jura .body-sample { font-family: "Jura", sans-serif; }
+
+  .italiana .menu-sample span,
+  .italiana .body-sample { font-family: "Italiana", serif; }
+
+  /* --- page title mockups --- */
+  .title-sample {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1;
+    color: var(--dark-teal);
+  }
+
+  .title-sample.rocksalt { font-family: "Rock Salt", cursive; }
+  .title-sample.nycd { font-family: "Nothing You Could Do", cursive; }
+  .title-sample.bartle { font-family: "BBH Bartle", sans-serif; }
+
+  /* --- accent text mockup --- */
+  .accent-nycd {
+    font-family: "Nothing You Could Do", cursive;
+    color: var(--teal);
+    font-size: 1.3em;
+  }
+
+  .accent-note {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 1.6rem;
+    color: var(--teal);
+  }
+
+  /* --- theme (accent color) cards --- */
+  .theme-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .theme-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .theme-card-name {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-teal-soft);
+    padding: 1rem 1.6rem 0;
+  }
+
+  .theme-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.6rem;
+    background: var(--dark-teal);
+    margin-top: 1rem;
+  }
+
+  .theme-card-header .logo-sample {
+    font-family: "BBH Bartle", sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  .theme-card-header nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .theme-card-header nav span {
+    font-family: "Jura", sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .theme-card-body {
+    padding: 2rem 1.6rem 2.2rem;
+  }
+
+  .theme-card-body .theme-label {
+    font-family: "Jura", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.7rem;
+  }
+
+  .theme-card-body h2 {
+    font-family: "BBH Bartle", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin: 0 0 0.9rem;
+    color: var(--dark-teal);
+  }
+
+  .theme-card-body h2 .accent-word {
+    font-family: "Nothing You Could Do", cursive;
+    color: var(--accent);
+    font-size: 1.25em;
+    font-weight: 400;
+  }
+
+  .theme-card-body p {
+    font-family: "Jura", sans-serif;
+    color: var(--dark-teal-soft);
+    max-width: 50ch;
+    margin: 0 0 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .theme-card-body .theme-cta {
+    font-family: "Jura", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 3px;
+  }
+
+  @media (max-width: 1300px) {
+    .compare-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 1100px) {
+    .compare-grid.cols-3 { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px) {
+    .compare-grid.cols-4 { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 800px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .header-mock { flex-direction: column; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <span class="eyebrow">Font Preview — Not Linked From The Live Site</span>
+  <h1>Comparing font options</h1>
+  <p>Scroll through each section to compare the two options side by side. Nothing here is final or interactive — just for deciding which direction to take.</p>
+</div>
+
+<section class="compare-section">
+  <span class="section-label">1 — Logo: "KAYA"</span>
+  <div class="compare-grid cols-4">
+    <div class="compare-card">
+      <span class="option-name">Futura</span>
+      <div class="logo-sample futura">KAYA</div>
+      <div class="header-mock">
+        <span class="logo-sample futura">KAYA</span>
+        <nav>
+          <span>Paintings</span>
+          <span>Photos</span>
+          <span>Words</span>
+          <span>Marketing</span>
+          <span>Info</span>
+        </nav>
+      </div>
+    </div>
+    <div class="compare-card">
+      <span class="option-name">Rock Salt</span>
+      <div class="logo-sample rocksalt">KAYA</div>
+      <div class="header-mock">
+        <span class="logo-sample rocksalt">KAYA</span>
+        <nav>
+          <span>Paintings</span>
+          <span>Photos</span>
+          <span>Words</span>
+          <span>Marketing</span>
+          <span>Info</span>
+        </nav>
+      </div>
+    </div>
+    <div class="compare-card">
+      <span class="option-name">Nothing You Could Do</span>
+      <div class="logo-sample nycd">KAYA</div>
+      <div class="header-mock">
+        <span class="logo-sample nycd">KAYA</span>
+        <nav>
+          <span>Paintings</span>
+          <span>Photos</span>
+          <span>Words</span>
+          <span>Marketing</span>
+          <span>Info</span>
+        </nav>
+      </div>
+    </div>
+    <div class="compare-card">
+      <span class="option-name">BBH Bartle</span>
+      <span class="pick-badge">Your pick</span>
+      <div class="logo-sample bartle">KAYA</div>
+      <div class="header-mock">
+        <span class="logo-sample bartle">KAYA</span>
+        <nav>
+          <span>Paintings</span>
+          <span>Photos</span>
+          <span>Words</span>
+          <span>Marketing</span>
+          <span>Info</span>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <span class="section-label">2 — Menu Items &amp; Body Text</span>
+  <div class="compare-grid">
+    <div class="compare-card jura">
+      <span class="option-name">Jura</span>
+      <span class="pick-badge">Your pick</span>
+      <div class="menu-sample">
+        <span>Paintings</span>
+        <span>Photos</span>
+        <span>Words</span>
+        <span>Marketing</span>
+        <span>Info</span>
+      </div>
+      <p class="body-sample">Work organized by client, added as engagements come in. Each campaign is shown with the original Instagram story content, the finished newsletter, and a short breakdown of the strategy behind it.</p>
+    </div>
+    <div class="compare-card italiana">
+      <span class="option-name">Italiana</span>
+      <div class="menu-sample">
+        <span>Paintings</span>
+        <span>Photos</span>
+        <span>Words</span>
+        <span>Marketing</span>
+        <span>Info</span>
+      </div>
+      <p class="body-sample">Work organized by client, added as engagements come in. Each campaign is shown with the original Instagram story content, the finished newsletter, and a short breakdown of the strategy behind it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <span class="section-label">3 — Page Titles</span>
+  <div class="compare-grid cols-3">
+    <div class="compare-card">
+      <span class="option-name">Rock Salt</span>
+      <div class="title-sample rocksalt">Marketing</div>
+    </div>
+    <div class="compare-card">
+      <span class="option-name">Nothing You Could Do</span>
+      <div class="title-sample nycd">Marketing</div>
+    </div>
+    <div class="compare-card">
+      <span class="option-name">BBH Bartle</span>
+      <span class="pick-badge">Your pick</span>
+      <div class="title-sample bartle">Marketing</div>
+    </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <span class="section-label">4 — Accent Text: Nothing You Could Do</span>
+  <div class="compare-grid" style="grid-template-columns: 1fr;">
+    <div class="compare-card" style="align-items: flex-start; text-align: left; max-width: 560px;">
+      <span class="option-name">Used inside headings &amp; small flourishes</span>
+      <div class="title-sample bartle" style="font-size: clamp(2rem, 5vw, 3.2rem);">Market<span class="accent-nycd">ing</span></div>
+      <span class="accent-note">a little handwritten note, like this</span>
+      <p class="body-sample" style="font-family: 'Jura', sans-serif; text-align: left;">Work organized by client, added as engagements come in.</p>
+    </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <span class="section-label">5 — Accent Color (replacing the orange)</span>
+  <div class="theme-stack">
+    <div class="theme-card">
+      <span class="theme-card-name">Red</span>
+      <div class="theme-card-header" style="--accent:#b3261e;">
+        <span class="logo-sample bartle">KAYA</span>
+        <nav>
+          <span>Paintings</span><span>Photos</span><span>Words</span><span>Marketing</span><span>Info</span>
+        </nav>
+      </div>
+      <div class="theme-card-body" style="--accent:#b3261e;">
+        <span class="theme-label">04 — Marketing</span>
+        <h2>Market<span class="accent-word">ing</span></h2>
+        <p>Work organized by client, added as engagements come in.</p>
+        <span class="theme-cta">View Work →</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <span class="theme-card-name">Pink</span>
+      <div class="theme-card-header" style="--accent:#c2447a;">
+        <span class="logo-sample bartle">KAYA</span>
+        <nav>
+          <span>Paintings</span><span>Photos</span><span>Words</span><span>Marketing</span><span>Info</span>
+        </nav>
+      </div>
+      <div class="theme-card-body" style="--accent:#c2447a;">
+        <span class="theme-label">04 — Marketing</span>
+        <h2>Market<span class="accent-word">ing</span></h2>
+        <p>Work organized by client, added as engagements come in.</p>
+        <span class="theme-cta">View Work →</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <span class="theme-card-name">Purple</span>
+      <div class="theme-card-header" style="--accent:#6a4c93;">
+        <span class="logo-sample bartle">KAYA</span>
+        <nav>
+          <span>Paintings</span><span>Photos</span><span>Words</span><span>Marketing</span><span>Info</span>
+        </nav>
+      </div>
+      <div class="theme-card-body" style="--accent:#6a4c93;">
+        <span class="theme-label">04 — Marketing</span>
+        <h2>Market<span class="accent-word">ing</span></h2>
+        <p>Work organized by client, added as engagements come in.</p>
+        <span class="theme-cta">View Work →</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <span class="theme-card-name">Dark Turquoise</span>
+      <div class="theme-card-header" style="--accent:#0e6e6a;">
+        <span class="logo-sample bartle">KAYA</span>
+        <nav>
+          <span>Paintings</span><span>Photos</span><span>Words</span><span>Marketing</span><span>Info</span>
+        </nav>
+      </div>
+      <div class="theme-card-body" style="--accent:#0e6e6a;">
+        <span class="theme-label">04 — Marketing</span>
+        <h2>Market<span class="accent-word">ing</span></h2>
+        <p>Work organized by client, added as engagements come in.</p>
+        <span class="theme-cta">View Work →</span>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <span class="theme-card-name">Navy</span>
+      <div class="theme-card-header" style="--accent:#1f3350;">
+        <span class="logo-sample bartle">KAYA</span>
+        <nav>
+          <span>Paintings</span><span>Photos</span><span>Words</span><span>Marketing</span><span>Info</span>
+        </nav>
+      </div>
+      <div class="theme-card-body" style="--accent:#1f3350;">
+        <span class="theme-label">04 — Marketing</span>
+        <h2>Market<span class="accent-word">ing</span></h2>
+        <p>Work organized by client, added as engagements come in.</p>
+        <span class="theme-cta">View Work →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
