@@ -1,0 +1,170 @@
+[
+  {
+    "id": "essentials",
+    "title": "Essentials",
+    "newsletter": "robin-collection/newsletters/essentials.html",
+    "stories": [
+      "robin-collection/stories/essentials/1.jpg",
+      "robin-collection/stories/essentials/2.jpg",
+      "robin-collection/stories/essentials/3.jpg",
+      "robin-collection/stories/essentials/4.jpg",
+      "robin-collection/stories/essentials/5.jpg",
+      "robin-collection/stories/essentials/6.jpg",
+      "robin-collection/stories/essentials/7.jpg"
+    ],
+    "caseStudy": [
+      {
+        "label": "Hero Banner",
+        "text": "Opens on \"The All Black and Ivory Drop\" \u2014 a tight two-colorway hero rather than the full range. A focused palette reads as a considered edit, not a clearance rack."
+      },
+      {
+        "label": "Featured Collection",
+        "text": "Only the Essentials pieces appear here, so there's exactly one decision to make: black or ivory. Narrowing the choice increases the odds of a click."
+      },
+      {
+        "label": "Editorial Section",
+        "text": "Black and ivory are the two colors every capsule wardrobe leans on, so this section positions Essentials as the foundation pieces you build every other look around."
+      },
+      {
+        "label": "CTA",
+        "text": "A plain, high-contrast button. After the two-color story is told, the ask should be the simplest moment in the email, not another decision."
+      }
+    ]
+  },
+  {
+    "id": "stella-suit",
+    "title": "Stella Suit",
+    "newsletter": "robin-collection/newsletters/stella-suit.html",
+    "stories": [
+      "robin-collection/stories/stella-suit/1.jpg",
+      "robin-collection/stories/stella-suit/2.jpg",
+      "robin-collection/stories/stella-suit/3.jpg",
+      "robin-collection/stories/stella-suit/4.jpg",
+      "robin-collection/stories/stella-suit/5.jpg",
+      "robin-collection/stories/stella-suit/6.jpg",
+      "robin-collection/stories/stella-suit/7.jpg",
+      "robin-collection/stories/stella-suit/8.jpg"
+    ],
+    "caseStudy": [
+      {
+        "label": "Hero Banner",
+        "text": "A single named suit gets the hero spot rather than a collection. Naming one piece (\"Stella\") gives it a personality, the way a heritage brand names a bag or a shade of lipstick."
+      },
+      {
+        "label": "Featured Collection",
+        "text": "One suit, likely shown in multiple colorways or on different bodies, so discovery here is about finding your version of Stella rather than browsing many different styles."
+      },
+      {
+        "label": "Editorial Section",
+        "text": "A hero-piece format signals confidence \u2014 it says this suit is strong enough to carry an entire send, which supports a premium read."
+      },
+      {
+        "label": "CTA",
+        "text": "Simple and direct, pointing straight at the one product just introduced."
+      }
+    ]
+  },
+  {
+    "id": "matching-sets",
+    "title": "Matching Sets",
+    "newsletter": "robin-collection/newsletters/matching-sets.html",
+    "stories": [
+      "robin-collection/stories/matching-sets/1.jpg",
+      "robin-collection/stories/matching-sets/2.jpg",
+      "robin-collection/stories/matching-sets/3.jpg",
+      "robin-collection/stories/matching-sets/4.jpg",
+      "robin-collection/stories/matching-sets/5.jpg",
+      "robin-collection/stories/matching-sets/6.jpg",
+      "robin-collection/stories/matching-sets/7.jpg",
+      "robin-collection/stories/matching-sets/8.jpg",
+      "robin-collection/stories/matching-sets/9.jpg"
+    ],
+    "caseStudy": [
+      {
+        "label": "Hero Banner",
+        "text": "Leads with \"Juntas o por separado, siempre funcionan\" (together or apart, they always work) \u2014 the hero copy does double duty as the value proposition."
+      },
+      {
+        "label": "Featured Collection",
+        "text": "Sets are shown styled together and as standalone pieces, so the same product page serves two different shoppers: the set-buyer and the mix-and-matcher."
+      },
+      {
+        "label": "Editorial Section",
+        "text": "Coordinated styling here is what makes \"they always work\" credible \u2014 it's proof, not just a claim, that the pieces genuinely pair well."
+      },
+      {
+        "label": "CTA",
+        "text": "One clear button, kept deliberately simple so it doesn't compete with the styling story just told."
+      }
+    ]
+  },
+  {
+    "id": "vestidos",
+    "title": "Vestidos",
+    "newsletter": "robin-collection/newsletters/vestidos.html",
+    "stories": [
+      "robin-collection/stories/vestidos/1.jpg",
+      "robin-collection/stories/vestidos/2.jpg",
+      "robin-collection/stories/vestidos/3.jpg",
+      "robin-collection/stories/vestidos/4.jpg",
+      "robin-collection/stories/vestidos/5.jpg",
+      "robin-collection/stories/vestidos/6.jpg",
+      "robin-collection/stories/vestidos/7.jpg",
+      "robin-collection/stories/vestidos/8.jpg",
+      "robin-collection/stories/vestidos/9.jpg",
+      "robin-collection/stories/vestidos/10.jpg",
+      "robin-collection/stories/vestidos/11.jpg",
+      "robin-collection/stories/vestidos/12.jpg"
+    ],
+    "caseStudy": [
+      {
+        "label": "Hero Banner",
+        "text": "Dresses extend the brand beyond swim, opening on lifestyle imagery to signal this is a resort wardrobe moment, not just a swimwear restock."
+      },
+      {
+        "label": "Featured Collection",
+        "text": "Showing dresses builds toward the \"resort capsule\" idea \u2014 swim plus cover-up plus dress \u2014 encouraging a bigger basket than a single-category send would."
+      },
+      {
+        "label": "Editorial Section",
+        "text": "This is where the cross-category story gets sold: dresses styled alongside swim and accessories, not shown in isolation."
+      },
+      {
+        "label": "CTA",
+        "text": "A simple button that doesn't pick a single product for you \u2014 appropriate when the section's job was to sell a lifestyle, not one item."
+      }
+    ]
+  },
+  {
+    "id": "auqamare-stromboli",
+    "title": "Aquamare & Stromboli",
+    "newsletter": "robin-collection/newsletters/auqamare-stromboli.html",
+    "stories": [
+      "robin-collection/stories/auqamare-stromboli/1.jpg",
+      "robin-collection/stories/auqamare-stromboli/2.jpg",
+      "robin-collection/stories/auqamare-stromboli/3.jpg",
+      "robin-collection/stories/auqamare-stromboli/4.jpg",
+      "robin-collection/stories/auqamare-stromboli/5.jpg",
+      "robin-collection/stories/auqamare-stromboli/6.jpg",
+      "robin-collection/stories/auqamare-stromboli/7.jpg"
+    ],
+    "caseStudy": [
+      {
+        "label": "Hero Banner",
+        "text": "Named for a Mediterranean island, the hero leans fully into place and setting rather than product, reinforcing the Mediterranean-lifestyle direction the brand is building toward."
+      },
+      {
+        "label": "Featured Collection",
+        "text": "Two named prints/colorways (Aquamare, Stromboli) are featured side by side, letting the destination naming do the differentiating instead of a long product description."
+      },
+      {
+        "label": "Editorial Section",
+        "text": "Destination-led styling is the clearest premium signal in the lineup here \u2014 evoking travel and place is a heritage-brand move, not a fast-fashion one."
+      },
+      {
+        "label": "CTA",
+        "text": "Kept simple, so the destination fantasy built above is what closes the sale, not the button itself."
+      }
+    ]
+  }
+]
