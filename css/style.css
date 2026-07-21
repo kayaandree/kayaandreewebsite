@@ -62,16 +62,26 @@ body {
   overflow-x: hidden;
 }
 
+/* Pages can opt into a themed image cursor by setting --page-cursor on
+   body[data-page="..."] (see below); everywhere else falls back to the
+   dot + ring custom cursor (cursor: none, drawn by main.js). */
 @media (hover: hover) and (pointer: fine) {
   body {
-    cursor: none;
+    cursor: var(--page-cursor, none);
   }
   a,
   button,
   .cursor-target {
-    cursor: none;
+    cursor: var(--page-cursor, none);
   }
 }
+
+body[data-page="paintings.html"] { --page-cursor: url("../cursors/fish.png") 16 16, auto; }
+body[data-page="photography.html"] { --page-cursor: url("../cursors/banana.png") 16 16, auto; }
+body[data-page="info.html"] { --page-cursor: url("../cursors/star.png") 16 16, auto; }
+body[data-page="writing.html"] { --page-cursor: url("../cursors/donut.png") 16 16, auto; }
+body[data-page="index.html"] { --page-cursor: url("../cursors/orchid.png") 16 16, auto; }
+body[data-page="marketing.html"] { --page-cursor: url("../cursors/strawberry.png") 16 16, auto; }
 
 img {
   max-width: 100%;
@@ -173,32 +183,12 @@ h1, h2, h3, h4 {
   opacity: 1;
 }
 
-.page-veil::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translate(-50%, -50%) scale(1);
-}
-
 body.is-loaded .page-veil {
   animation: veil-out 0.7s var(--ease) forwards;
 }
 
-body.is-loaded .page-veil::before {
-  animation: veil-dot-out 0.7s var(--ease) forwards;
-}
-
 body.is-leaving .page-veil {
   animation: veil-in 0.5s var(--ease) forwards;
-}
-
-body.is-leaving .page-veil::before {
-  animation: veil-dot-in 0.5s var(--ease) forwards;
 }
 
 @keyframes veil-out {
@@ -209,16 +199,6 @@ body.is-leaving .page-veil::before {
 @keyframes veil-in {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes veil-dot-out {
-  from { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  to { transform: translate(-50%, -50%) scale(90); opacity: 0; }
-}
-
-@keyframes veil-dot-in {
-  from { transform: translate(-50%, -50%) scale(90); opacity: 0; }
-  to { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
 }
 
 body:not(.is-loaded) .page-veil {
@@ -1149,7 +1129,9 @@ body.is-loaded:not(.is-leaving) .page-veil {
 }
 
 .client-section h2 {
-  font-size: 2.2rem;
+  font-family: var(--font-accent);
+  font-size: 2.1rem;
+  font-weight: 400;
 }
 
 /* ==========================================================================

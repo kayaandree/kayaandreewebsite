@@ -20,13 +20,18 @@
 
   /* ---------- custom cursor ---------- */
 
+  // Pages listed here use a themed image cursor (see --page-cursor in
+  // style.css) instead of the dot + ring that follows the pointer.
+  var PAGES_WITH_IMAGE_CURSOR = ['paintings.html', 'photography.html', 'info.html', 'writing.html', 'index.html', 'marketing.html'];
+
   function initCursor() {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (PAGES_WITH_IMAGE_CURSOR.indexOf(document.body.dataset.page) !== -1) return;
 
     var dot = document.createElement('div');
-    dot.className = 'cursor-dot';
+    dot.className = 'cursor-dot is-hidden';
     var ring = document.createElement('div');
-    ring.className = 'cursor-ring';
+    ring.className = 'cursor-ring is-hidden';
     document.body.appendChild(dot);
     document.body.appendChild(ring);
 
@@ -34,11 +39,19 @@
     var mouseY = window.innerHeight / 2;
     var ringX = mouseX;
     var ringY = mouseY;
+    var hasMoved = false;
 
     window.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
       dot.style.transform = 'translate(' + mouseX + 'px,' + mouseY + 'px) translate(-50%,-50%)';
+      if (!hasMoved) {
+        hasMoved = true;
+        ringX = mouseX;
+        ringY = mouseY;
+        dot.classList.remove('is-hidden');
+        ring.classList.remove('is-hidden');
+      }
     });
 
     function raf() {
