@@ -20,13 +20,18 @@
 
   /* ---------- custom cursor ---------- */
 
+  // Pages listed here use a themed image cursor (see --page-cursor in
+  // style.css) instead of the dot + ring that follows the pointer.
+  var PAGES_WITH_IMAGE_CURSOR = ['paintings.html', 'photography.html', 'info.html', 'writing.html', 'index.html', 'marketing.html'];
+
   function initCursor() {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (PAGES_WITH_IMAGE_CURSOR.indexOf(document.body.dataset.page) !== -1) return;
 
     var dot = document.createElement('div');
-    dot.className = 'cursor-dot';
+    dot.className = 'cursor-dot is-hidden';
     var ring = document.createElement('div');
-    ring.className = 'cursor-ring';
+    ring.className = 'cursor-ring is-hidden';
     document.body.appendChild(dot);
     document.body.appendChild(ring);
 
@@ -34,11 +39,19 @@
     var mouseY = window.innerHeight / 2;
     var ringX = mouseX;
     var ringY = mouseY;
+    var hasMoved = false;
 
     window.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
       dot.style.transform = 'translate(' + mouseX + 'px,' + mouseY + 'px) translate(-50%,-50%)';
+      if (!hasMoved) {
+        hasMoved = true;
+        ringX = mouseX;
+        ringY = mouseY;
+        dot.classList.remove('is-hidden');
+        ring.classList.remove('is-hidden');
+      }
     });
 
     function raf() {
@@ -483,117 +496,6 @@
 
   window.Gallery = { render: renderGallery, renderPaintings: renderPaintings, renderCollage: renderCollage };
 
-  /* ---------- home hero slideshow ---------- */
-
-  function initSlideshow() {
-    var wrap = document.getElementById('heroScrollWrap');
-    var section = document.getElementById('heroSlideshow');
-    if (!wrap || !section) return;
-
-    var bounds = section.querySelector('.slideshow-bounds');
-    var frame = section.querySelector('.slideshow-frame');
-    var track = section.querySelector('.slideshow-track');
-    var folder = SITE_DATA.home.folder;
-    var files = SITE_DATA.home.images;
-    var RATIO = 4 / 3;
-
-    function startInset() {
-      var w = window.innerWidth;
-      if (w <= 640) return 24;
-      if (w <= 900) return 40;
-      return 113; // ~3cm
-    }
-
-    function sizeFrame() {
-      var maxW = bounds.clientWidth;
-      var maxH = bounds.clientHeight;
-      var w = maxW;
-      var h = w / RATIO;
-      if (h > maxH) {
-        h = maxH;
-        w = h * RATIO;
-      }
-      frame.style.width = w + 'px';
-      frame.style.height = h + 'px';
-    }
-
-    // As the tall scroll-wrap is scrolled through, the sticky hero shrinks its
-    // border down to 0 (true full screen), then releases and scrolls away.
-    var ticking = false;
-    function updateScrollState() {
-      var wrapTop = wrap.getBoundingClientRect().top;
-      var scrollable = wrap.offsetHeight - window.innerHeight;
-      var progress = scrollable > 0 ? -wrapTop / scrollable : 1;
-      progress = Math.min(1, Math.max(0, progress));
-      section.style.setProperty('--slide-inset', startInset() * (1 - progress) + 'px');
-      sizeFrame();
-      ticking = false;
-    }
-    function onScrollOrResize() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateScrollState);
-      }
-    }
-
-    updateScrollState();
-    window.addEventListener('scroll', onScrollOrResize, { passive: true });
-    window.addEventListener('resize', onScrollOrResize);
-
-    files.forEach(function (file, i) {
-      var slide = document.createElement('div');
-      slide.className = 'slide' + (i === 0 ? ' is-active' : '');
-      var img = document.createElement('img');
-      img.src = imgUrl(folder, file);
-      img.alt = '';
-      img.loading = i === 0 ? 'eager' : 'lazy';
-      img.decoding = 'async';
-      slide.appendChild(img);
-      track.appendChild(slide);
-    });
-
-    var slides = track.querySelectorAll('.slide');
-    var current = 0;
-    var autoplayTimer = null;
-
-    function show(i) {
-      if (i === current) return;
-      slides[current].classList.remove('is-active');
-      current = (i + slides.length) % slides.length;
-      slides[current].classList.add('is-active');
-    }
-
-    function next() { show(current + 1); }
-    function prev() { show(current - 1); }
-
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayTimer = setInterval(next, 6000);
-    }
-    function stopAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
-    }
-
-    startAutoplay();
-
-    frame.addEventListener('mouseenter', stopAutoplay);
-    frame.addEventListener('mouseleave', startAutoplay);
-
-    // Moving the cursor horizontally across the frame scrubs through the photos.
-    frame.addEventListener('mousemove', function (e) {
-      var rect = frame.getBoundingClientRect();
-      var ratio = (e.clientX - rect.left) / rect.width;
-      ratio = Math.min(0.999, Math.max(0, ratio));
-      show(Math.floor(ratio * slides.length));
-    });
-
-    frame.addEventListener('click', function (e) {
-      var rect = frame.getBoundingClientRect();
-      var isRight = e.clientX - rect.left > rect.width / 2;
-      if (isRight) next(); else prev();
-    });
-  }
-
   /* ---------- hydrate curated <img data-folder data-file> tags ---------- */
 
   function hydrateImages(root) {
@@ -612,7 +514,6 @@
     initCursor();
     initNav();
     initTransitions();
-    initSlideshow();
     hydrateImages();
     registerAnimated();
   });

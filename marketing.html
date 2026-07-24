@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="marketing.html">
@@ -30,7 +31,44 @@
 </section>
 
 <section class="camp-page" id="camp-robin-collection">
-  <div class="camp-rows" id="camp-rows-robin-collection"></div>
+  <p class="camp-hint">Scroll inside a phone to see the rest of that email.</p>
+  <div class="camp-carousel" id="camp-newsletter-carousel">
+    <div class="camp-carousel-track" id="camp-newsletter-track"></div>
+  </div>
+
+  <p class="camp-hint">Click a story to move to the next photo.</p>
+  <div class="camp-carousel" id="camp-story-carousel">
+    <div class="camp-carousel-track" id="camp-story-track"></div>
+  </div>
+
+  <div class="camp-walkthrough">
+    <div class="walkthrough-block">
+      <div class="camp-title">Content Framework</div>
+      <p class="walkthrough-intro">Every send follows the same four-part structure, adapted to each collection's story.</p>
+      <div class="case-study">
+        <div class="case-step">
+          <p class="case-step-label">Hero</p>
+          <p class="case-step-text">Opens with a limited colorway, one named piece, a tagline, or a destination name. Committing to one angle reads as curated, not a catalog dump.</p>
+        </div>
+        <div class="case-step">
+          <p class="case-step-label">Featured</p>
+          <p class="case-step-text">Narrows the decision the shopper has to make, whether that's two colorways, one product in variants, or pieces shown both styled and standalone. Fewer choices, more clicks.</p>
+        </div>
+        <div class="case-step">
+          <p class="case-step-label">Editorial</p>
+          <p class="case-step-text">Where the claim gets proven — through foundational pieces built into a capsule, a hero piece given room to carry the send, sets shown styled together as proof they work, cross-category styling to build a bigger basket, or destination mood to sell a lifestyle.</p>
+        </div>
+        <div class="case-step">
+          <p class="case-step-label">CTA</p>
+          <p class="case-step-text">The hard sell already happened in the hero and editorial, so the ask itself should be the easiest moment.</p>
+        </div>
+        <div class="case-step case-step--philosophy">
+          <p class="case-step-label">Core philosophy</p>
+          <p class="case-step-text">Reduce decision fatigue at every stage, use naming and styling rather than discounting to signal a premium, considered brand, and let each collection's unique story do the differentiating while the format stays consistent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="client-section" data-animate>
@@ -45,18 +83,64 @@
     margin: 0 auto;
   }
 
-  .camp-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+  .camp-hint {
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0 0 0.5rem;
   }
 
-  .camp-row {
+  /* --- row 1: newsletters, an auto-scrolling right-to-left carousel --- */
+  .camp-carousel {
+    overflow: hidden;
+    padding: 1rem 0 2.5rem;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  }
+
+  .camp-carousel-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 2rem;
+    width: max-content;
+    animation: camp-carousel-scroll 100s linear infinite;
+  }
+
+  .camp-carousel:hover .camp-carousel-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes camp-carousel-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .camp-carousel-track {
+      animation: none;
+    }
+    .camp-carousel {
+      overflow-x: auto;
+    }
+  }
+
+  /* --- walkthrough, stacked below both rows --- */
+  .camp-walkthrough {
+    display: flex;
+    flex-direction: column;
     gap: 2.5rem;
-    flex-wrap: wrap;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .walkthrough-block {
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--accent-soft);
+  }
+
+  .walkthrough-block:first-child {
+    padding-top: 0;
+    border-top: none;
   }
 
   .camp-title {
@@ -105,11 +189,13 @@
   }
 
   .phone-screen iframe {
-    width: 100%;
-    height: 100%;
+    width: 151.5%;
+    height: 151.5%;
     border: none;
     display: block;
     -webkit-overflow-scrolling: touch;
+    transform: scale(0.66);
+    transform-origin: top left;
   }
 
   /* --- story-specific bits --- */
@@ -160,15 +246,9 @@
 
   /* --- case study column --- */
   .case-study {
-    max-width: 340px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .case-step {
-    padding-left: 14px;
-    border-left: 2px solid var(--accent-soft);
   }
 
   .case-step-label {
@@ -187,14 +267,24 @@
     margin: 0;
   }
 
+  .walkthrough-intro {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 1.75rem;
+  }
+
+  .case-step--philosophy {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--accent-soft);
+  }
+
   /* --- responsive: stack on narrower screens --- */
   @media (max-width: 900px) {
-    .camp-row {
-      flex-direction: column;
-    }
     .case-study {
       max-width: 100%;
-      text-align: left;
     }
   }
 
@@ -279,53 +369,47 @@
     return wrap;
   }
 
-  function buildCaseStudy(steps) {
-    const wrap = document.createElement("div");
-    wrap.className = "case-study";
+  // Both carousels travel at the same pixel speed regardless of how many
+  // phones they hold, so a short row doesn't look slower than a long one.
+  const CAROUSEL_SPEED_PX_PER_SEC = 35;
 
-    steps.forEach((step) => {
-      const stepEl = document.createElement("div");
-      stepEl.className = "case-step";
-      stepEl.innerHTML = `
-        <p class="case-step-label">${step.label}</p>
-        <p class="case-step-text">${step.text}</p>
-      `;
-      wrap.appendChild(stepEl);
-    });
-
-    return wrap;
+  function applyCarouselSpeed(track) {
+    const totalWidth = track.scrollWidth; // both duplicated copies together
+    const duration = (totalWidth / 2) / CAROUSEL_SPEED_PX_PER_SEC;
+    track.style.animationDuration = `${duration}s`;
   }
 
-  function renderCampaignRows(containerId, jsonPath) {
+  function renderMarketingSections(jsonPath) {
     fetch(jsonPath)
       .then((res) => res.json())
       .then((campaigns) => {
-        const container = document.getElementById(containerId);
+        const newsletterTrack = document.getElementById("camp-newsletter-track");
+        const storyTrack = document.getElementById("camp-story-track");
 
-        campaigns.forEach((camp) => {
-          const section = document.createElement("div");
+        // Row 1: every newsletter, duplicated once so the -50% scroll loops seamlessly.
+        for (let copy = 0; copy < 2; copy++) {
+          campaigns.forEach((camp) => {
+            newsletterTrack.appendChild(buildNewsletterPhone(camp.newsletter));
+          });
+        }
 
-          const title = document.createElement("div");
-          title.className = "camp-title";
-          title.textContent = camp.title;
+        // Row 2: only campaigns with story photos so far, same duplicated scroll.
+        const withStories = campaigns.filter((camp) => camp.stories && camp.stories.length);
+        for (let copy = 0; copy < 2; copy++) {
+          withStories.forEach((camp) => {
+            storyTrack.appendChild(buildStoryPhone(camp.stories));
+          });
+        }
 
-          const row = document.createElement("div");
-          row.className = "camp-row";
-          row.appendChild(buildStoryPhone(camp.stories));
-          row.appendChild(buildNewsletterPhone(camp.newsletter));
-          row.appendChild(buildCaseStudy(camp.caseStudy));
-
-          section.appendChild(title);
-          section.appendChild(row);
-          container.appendChild(section);
-        });
+        applyCarouselSpeed(newsletterTrack);
+        applyCarouselSpeed(storyTrack);
       })
       .catch((err) => {
         console.error(`Couldn't load ${jsonPath}:`, err);
       });
   }
 
-  renderCampaignRows("camp-rows-robin-collection", "robin-collection/campaigns.json");
+  renderMarketingSections("robin-collection/campaigns.json");
 </script>
 
 <footer class="site-footer">

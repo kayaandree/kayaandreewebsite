@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="photography.html">
@@ -42,6 +43,16 @@
 <section id="events">
   <div class="event-group-header" data-animate></div>
   <div id="eventGroups"></div>
+
+  <div class="event-group event-group--video">
+    <div class="event-group-header" data-animate>
+      <h2 class="event-heading--label">2025 Bacheloneta Teaser</h2>
+    </div>
+    <div class="event-video-wrap" data-animate>
+      <video class="event-video cursor-target" src="Photography/Your%20Semester%20Starts%20Here.m4v" muted loop playsinline preload="metadata"></video>
+    </div>
+    <p class="event-video-desc">Produced for Bacheloneta Student Union: developed the concept, cast and directed the student talent, filmed on location around Barcelona, and edited the final cut.</p>
+  </div>
 </section>
 
 <section id="other-pretty-things">
@@ -141,6 +152,40 @@
 
   // Other Pretty Things
   Gallery.renderCollage(document.getElementById('otherPrettyGallery'), SITE_DATA.otherPrettyThings.folder, SITE_DATA.otherPrettyThings.layout);
+
+  // "2025 Bacheloneta Teaser" video — autoplays once scrolled into view,
+  // pauses out of view. The first click goes fullscreen; once fullscreen,
+  // clicking just toggles play/pause instead.
+  var eventVideo = document.querySelector('.event-video');
+  if (eventVideo) {
+    var eventVideoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          eventVideo.play();
+        } else {
+          eventVideo.pause();
+        }
+      });
+    }, { threshold: 0.4 });
+    eventVideoObserver.observe(eventVideo);
+
+    eventVideo.addEventListener('click', function () {
+      var isFullscreen = document.fullscreenElement === eventVideo || document.webkitFullscreenElement === eventVideo;
+      if (!isFullscreen) {
+        if (eventVideo.requestFullscreen) {
+          eventVideo.requestFullscreen();
+        } else if (eventVideo.webkitRequestFullscreen) {
+          eventVideo.webkitRequestFullscreen();
+        } else if (eventVideo.webkitEnterFullscreen) {
+          eventVideo.webkitEnterFullscreen();
+        }
+      } else if (eventVideo.paused) {
+        eventVideo.play();
+      } else {
+        eventVideo.pause();
+      }
+    });
+  }
 </script>
 </body>
 </html>

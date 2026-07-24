@@ -7,23 +7,7 @@
 const SITE_DATA = {
   home: {
     folder: 'home page',
-    images: [
-      '2F9A4773 2.JPG',
-      '8528 - 2026.06.05 - Kaya Kelly - Kodak Gold 200 -26-2 copie.jpg',
-      'IMG_9231.jpg',
-      '_MG_9107.jpg',
-      '_MG_9123.jpg',
-      'andorrab copie.jpg',
-      'andorraor copie.jpg',
-      'bee copie.jpg',
-      'plast copie.jpg',
-      'poppy copie.jpg',
-      'purple moon copie.jpg',
-      'redgreen copie.jpg',
-      'volcano copie.jpg',
-      'water copie.jpg',
-      'yardback copie.jpg'
-    ]
+    video: 'Homepagebackground.mov'
   },
 
   // Artist statement lifted from the top of "Painting descriptions.pdf"
@@ -36,7 +20,7 @@ const SITE_DATA = {
       {
         file: 'Playdoh.jpeg',
         name: 'Playdoh',
-        medium: 'Print on Paper',
+        medium: 'Print on Paper, 2023',
         fullWidth: true,
         sideBySide: true,
         imgBigger: true,
@@ -45,14 +29,14 @@ const SITE_DATA = {
       {
         file: 'What?.jpg',
         name: 'What?',
-        medium: 'Mixed Media on Paper',
+        medium: 'Mixed Media on Paper, 2022',
         alignEnd: true,
         desc: 'I think therefore'
       },
       {
         file: 'ahah.jpg',
         name: 'ahah',
-        medium: 'Color pencil on paper',
+        medium: 'Color pencil on paper, 2023',
         cropTop: true,
         alignEnd: true,
         desc: 'Too much to say.'
@@ -60,20 +44,20 @@ const SITE_DATA = {
       {
         file: 'Lily Lady.JPG',
         name: 'Lily Lady',
-        medium: 'Acrylic on canvas',
+        medium: 'Acrylic on canvas, 2025',
         desc: 'Lily Lady lives in Lily Land\nLily Lady never chose to be a Lily Lady but\nLily Lady was born in Lily Land so\nLily Lady must be a Lily Lady\nLily Lady is the reason Lily Land is Lily Land is the reason\nLily Lady is Lily Lady\nLily Lady has never considered if she liked living in Lily Land or if she liked being a Lily Lady'
       },
       {
         file: 'Just One More.jpg',
         name: 'Just One More!',
-        medium: 'Acrylic on canvas',
+        medium: 'Acrylic on canvas, 2025',
         wideText: true,
         desc: "I loveeee sprinkles. They are so colorful and fun to look at. They can make anything look better. If you mess up a cake or the cookies you made are a bit burnt, just add some sprinkles. It won’t help too much with the flavor or anything but at least it will look nice. Anyways, it’s not like I was going to marry the sprinkles or anything. They’re just for fun.\n\nIn case that was a bit too cryptic, modern women have been lobotomized by extreme expectations of beauty. Conscious of it or not, they will in some way or another base their worth at least partially on their appearance. Self objectification and sexualization prompts the same treatment from others. The more time a woman spends obsessing over her appearance, the less time she has with herself, to create, and to love. The more importance allocated to a woman’s beauty, the less attention paid to other qualities of her identity."
       },
       {
         file: 'No Brainer.jpg',
         name: 'No Brainer',
-        medium: 'Acrylic on canvas',
+        medium: 'Acrylic on canvas, 2025',
         fullWidth: true,
         sideBySide: true,
         imgMuchBigger: true,
@@ -82,33 +66,33 @@ const SITE_DATA = {
       {
         file: 'Do You Really?.jpeg',
         name: 'Do You Really?',
-        medium: 'Acrylic on canvas',
+        medium: 'Acrylic on canvas, 2024',
         wideText: true,
         desc: 'As women, our bodies will never be left alone. An attractive body will be lusted after, left sexualized and inanimate while an unattractive body is scrutinized and shamed. The catch, however, is that standards of beauty are neither stagnant nor unanimous. A woman can be simultaneously praised and shamed for the body she has despite never bringing attention to it herself.\n\nThe obsession with women’s bodies prompts inherent objectification and women’s lack of autonomy. Emphasized importance of women’s physical appearances diminishes the perceived value or all other aspects of their identities. Violence and sexual violence towards women is driven by societies that do not view them as fully human.'
       },
       {
         file: 'You Are The River Btw.jpg',
         name: 'You Are The River Btw',
-        medium: 'Oil on a piece of cardboard',
+        medium: 'Oil on a piece of cardboard, 2024',
         desc: 'Do not blame the river because you have stumbled and fallen into it.'
       },
       {
         file: 'Tout Pour Toi.jpeg',
         name: 'Tout Pour Toi',
-        medium: 'Acrylic on Paper',
+        medium: 'Acrylic on Paper, 2025',
         desc: '"In the act of loving, of giving myself, in the act of penetrating the other person, I find myself, I discover myself, I discover us both, I discover man."\n— Erich Fromm'
       },
       {
         file: 'Madiana.JPG',
         name: 'Madiana',
-        medium: 'Mixed media on paper',
+        medium: 'Mixed media on paper, 2023',
         wideText: true,
         desc: "Pour cette œuvre, j’ai dû prendre des centaines de photos de la Martinique, les découper et les recoller afin de représenter une mulâtresse, une femme typique de la Martinique. J’ai été inspirée par la poterie de Sylvain Fillon. Beaucoup des poteries qu’il crée rendent hommage à la Martinique et à la culture martiniquaise.\n\nElle porte un foulard en tissu madras, qui a été introduit en Martinique lorsque les colons ont ramené des Indiens pour faire le travail que les esclaves nouvellement libérés ne voulaient plus faire. À ses oreilles, elle porte des boucles d’oreilles créoles, que toutes les filles rêvent de porter quand elles seront plus grandes.\n\nOn oublie souvent notre histoire et on n’apprécie pas assez notre culture à cause de cela. Petite, on se moquait de moi parce que j’étais martiniquaise, en disant qu’on n’était pas des gens civilisés, qu’on venait d’un pays pauvre ou qu’on avait un accent drôle. Aujourd’hui, je ne pourrais pas être plus fière de mon pays."
       },
       {
         file: 'From Memory.jpg',
         name: 'From Memory',
-        medium: 'Acrylic on canvas',
+        medium: 'Acrylic on canvas, 2025',
         fullWidth: true,
         shrink: true,
         desc: 'You are familiar.'
@@ -116,21 +100,21 @@ const SITE_DATA = {
       {
         file: 'Simple Stupid Swirly Love.JPG',
         name: 'Stupid Swirly Love',
-        medium: 'Acrylic on paper',
+        medium: 'Acrylic on paper, 2023',
         smaller: true,
         desc: 'Blah blah blah big feelings blah blah blah who cares?'
       },
       {
         file: 'Yikes!.jpeg',
         name: 'Yikes!',
-        medium: 'Mixed media on canvas',
+        medium: 'Mixed media on canvas, 2024',
         bigger: true,
         desc: 'Through suffering, we cause suffering.\nWe must learn to transform our suffering into love to heal ourselves and others.\nTo do so, one must have grace.'
       },
       {
         file: 'Commission Peice.jpg',
         name: 'Commission Piece',
-        medium: 'Acrylic on canvas',
+        medium: 'Acrylic on canvas, 2024',
         fullWidth: true,
         shrink: true,
         desc: ''
@@ -144,7 +128,7 @@ const SITE_DATA = {
       {
         key: 'bayko',
         folder: 'Bayko',
-        title: 'Bayko',
+        title: 'Bayko, 2025',
         images: [
           '3.jpg',
           '6.jpg',
@@ -193,7 +177,7 @@ const SITE_DATA = {
         key: 'club',
         folder: 'club',
         title: 'Events',
-        subLabel: 'Club',
+        subLabel: 'Club, 2025',
         images: [
           '1-IMG_1520 copie.jpg',
           '2-IMG_8659 copie.jpg',
@@ -235,7 +219,7 @@ const SITE_DATA = {
       {
         key: 'boat',
         folder: 'boat',
-        title: 'Boat Party',
+        title: 'Boat Party, 2025',
         headingStyle: 'label',
         images: [
           '1-IMG_6198 copie.jpg',
@@ -254,7 +238,7 @@ const SITE_DATA = {
       {
         key: 'volleyball',
         folder: 'volleyball',
-        title: 'Beach',
+        title: 'Integration Weekend, 2025',
         headingStyle: 'label',
         images: [
           'IMG_5498 copie.jpg',
@@ -285,9 +269,28 @@ const SITE_DATA = {
     folder: 'Photography/film',
     subsections: [
       {
+        key: 'world-cup-final-2026-bcn',
+        folder: '2026 World Cup Final, Barcelona',
+        title: '2026 World Cup Final, Barcelona',
+        images: [
+          '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -11 copie.jpg',
+          '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -12 copie.jpg',
+          '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -13 copie.jpg',
+          '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -18 copie.jpg',
+          '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -24 copie.jpg',
+          '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -28 copie.jpg'
+        ],
+        // 6 photos: three even rows of 2.
+        layout: [
+          ['1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -11 copie.jpg', '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -12 copie.jpg'],
+          ['1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -13 copie.jpg', '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -18 copie.jpg'],
+          ['1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -24 copie.jpg', '1581 - 2026.07.22 - Kaya Kelly - Fuji 400 -28 copie.jpg']
+        ]
+      },
+      {
         key: 'vietnam',
         folder: 'Vietnam',
-        title: 'Vietnam',
+        title: 'Vietnam, 2026',
         images: [
           '000004 copie.jpg',
           '000005 copie.jpg',
@@ -312,7 +315,7 @@ const SITE_DATA = {
       {
         key: 'italy',
         folder: 'Italy',
-        title: 'Italy',
+        title: 'Italy, 2025',
         images: [
           '000105680017 copie.jpg',
           '000105680018 copie.jpg',

@@ -62,16 +62,26 @@ body {
   overflow-x: hidden;
 }
 
+/* Pages can opt into a themed image cursor by setting --page-cursor on
+   body[data-page="..."] (see below); everywhere else falls back to the
+   dot + ring custom cursor (cursor: none, drawn by main.js). */
 @media (hover: hover) and (pointer: fine) {
   body {
-    cursor: none;
+    cursor: var(--page-cursor, none);
   }
   a,
   button,
   .cursor-target {
-    cursor: none;
+    cursor: var(--page-cursor, none);
   }
 }
+
+body[data-page="paintings.html"] { --page-cursor: url("../cursors/fish.png") 16 16, auto; }
+body[data-page="photography.html"] { --page-cursor: url("../cursors/banana.png") 16 16, auto; }
+body[data-page="info.html"] { --page-cursor: url("../cursors/star.png") 16 16, auto; }
+body[data-page="writing.html"] { --page-cursor: url("../cursors/donut.png") 16 16, auto; }
+body[data-page="index.html"] { --page-cursor: url("../cursors/orchid.png") 16 16, auto; }
+body[data-page="marketing.html"] { --page-cursor: url("../cursors/strawberry.png") 16 16, auto; }
 
 img {
   max-width: 100%;
@@ -173,32 +183,12 @@ h1, h2, h3, h4 {
   opacity: 1;
 }
 
-.page-veil::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translate(-50%, -50%) scale(1);
-}
-
 body.is-loaded .page-veil {
   animation: veil-out 0.7s var(--ease) forwards;
 }
 
-body.is-loaded .page-veil::before {
-  animation: veil-dot-out 0.7s var(--ease) forwards;
-}
-
 body.is-leaving .page-veil {
   animation: veil-in 0.5s var(--ease) forwards;
-}
-
-body.is-leaving .page-veil::before {
-  animation: veil-dot-in 0.5s var(--ease) forwards;
 }
 
 @keyframes veil-out {
@@ -209,16 +199,6 @@ body.is-leaving .page-veil::before {
 @keyframes veil-in {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes veil-dot-out {
-  from { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  to { transform: translate(-50%, -50%) scale(90); opacity: 0; }
-}
-
-@keyframes veil-dot-in {
-  from { transform: translate(-50%, -50%) scale(90); opacity: 0; }
-  to { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
 }
 
 body:not(.is-loaded) .page-veil {
@@ -299,83 +279,36 @@ body.is-loaded:not(.is-leaving) .page-veil {
 }
 
 /* ==========================================================================
-   Hero (home) — interactive slideshow
+   Hero (home) — fullscreen looping background video
    ========================================================================== */
 
-.hero-scroll-wrap {
+.hero-video {
   position: relative;
-  height: 220vh;
-}
-
-.hero-slideshow {
-  position: sticky;
-  top: 0;
   width: 100%;
   height: 100vh;
   min-height: 560px;
-  background: var(--white);
   overflow: hidden;
+  background: var(--ink);
 }
 
-.slideshow-bounds {
-  position: absolute;
-  top: var(--slide-inset, 3cm);
-  right: var(--slide-inset, 3cm);
-  bottom: var(--slide-inset, 3cm);
-  left: var(--slide-inset, 3cm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slideshow-frame {
-  position: relative;
-  overflow: hidden;
-  background: var(--white);
-  clip-path: inset(42% 0 42% 0);
-  animation: frame-widen 1.7s var(--ease) forwards;
-  animation-delay: 0.25s;
-}
-
-@keyframes frame-widen {
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.slideshow-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.slide {
+.hero-video-el {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transform: scale(1.06);
-  transition: opacity 1s var(--ease), transform 6s linear;
-  pointer-events: none;
-}
-
-.slide.is-active {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-  z-index: 2;
-}
-
-.slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Slight zoom/crop — works out to ~3/4cm off each side on a 13" MacBook's
+     ~28.7cm-wide display. */
+  transform: scale(1.053);
 }
 
-.slideshow-frame::after {
+.hero-video::after {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.12) 0%, rgba(20, 20, 20, 0) 30%, rgba(20, 20, 20, 0) 70%, rgba(20, 20, 20, 0.35) 100%);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.32) 0%, rgba(20, 20, 20, 0) 22%, rgba(20, 20, 20, 0) 78%, rgba(20, 20, 20, 0.32) 100%);
 }
 
 /* ==========================================================================
@@ -810,6 +743,29 @@ body.is-loaded:not(.is-leaving) .page-veil {
   margin-top: 0.6rem;
 }
 
+.event-video-wrap {
+  padding: 0 var(--gutter) 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.event-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+  cursor: pointer;
+}
+
+.event-video-desc {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 2rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 /* Film grainy aesthetic — a full-bleed sub-section within the photography page */
 .film-subsection {
   position: relative;
@@ -1149,7 +1105,9 @@ body.is-loaded:not(.is-leaving) .page-veil {
 }
 
 .client-section h2 {
-  font-size: 2.2rem;
+  font-family: var(--font-accent);
+  font-size: 2.1rem;
+  font-weight: 400;
 }
 
 /* ==========================================================================

@@ -15,7 +15,7 @@
     "caseStudy": [
       {
         "label": "Hero Banner",
-        "text": "Opens on \"The All Black and Ivory Drop\" \u2014 a tight two-colorway hero rather than the full range. A focused palette reads as a considered edit, not a clearance rack."
+        "text": "Opens on \"The All Black and Ivory Drop\" — a tight two-colorway hero rather than the full range. A focused palette reads as a considered edit, not a clearance rack."
       },
       {
         "label": "Featured Collection",
@@ -56,7 +56,7 @@
       },
       {
         "label": "Editorial Section",
-        "text": "A hero-piece format signals confidence \u2014 it says this suit is strong enough to carry an entire send, which supports a premium read."
+        "text": "A hero-piece format signals confidence — it says this suit is strong enough to carry an entire send, which supports a premium read."
       },
       {
         "label": "CTA",
@@ -82,7 +82,7 @@
     "caseStudy": [
       {
         "label": "Hero Banner",
-        "text": "Leads with \"Juntas o por separado, siempre funcionan\" (together or apart, they always work) \u2014 the hero copy does double duty as the value proposition."
+        "text": "Leads with \"Juntas o por separado, siempre funcionan\" (together or apart, they always work) — the hero copy does double duty as the value proposition."
       },
       {
         "label": "Featured Collection",
@@ -90,7 +90,7 @@
       },
       {
         "label": "Editorial Section",
-        "text": "Coordinated styling here is what makes \"they always work\" credible \u2014 it's proof, not just a claim, that the pieces genuinely pair well."
+        "text": "Coordinated styling here is what makes \"they always work\" credible — it's proof, not just a claim, that the pieces genuinely pair well."
       },
       {
         "label": "CTA",
@@ -123,7 +123,7 @@
       },
       {
         "label": "Featured Collection",
-        "text": "Showing dresses builds toward the \"resort capsule\" idea \u2014 swim plus cover-up plus dress \u2014 encouraging a bigger basket than a single-category send would."
+        "text": "Showing dresses builds toward the \"resort capsule\" idea — swim plus cover-up plus dress — encouraging a bigger basket than a single-category send would."
       },
       {
         "label": "Editorial Section",
@@ -131,40 +131,107 @@
       },
       {
         "label": "CTA",
-        "text": "A simple button that doesn't pick a single product for you \u2014 appropriate when the section's job was to sell a lifestyle, not one item."
+        "text": "A simple button that doesn't pick a single product for you — appropriate when the section's job was to sell a lifestyle, not one item."
       }
     ]
   },
   {
-    "id": "auqamare-stromboli",
-    "title": "Aquamare & Stromboli",
-    "newsletter": "robin-collection/newsletters/auqamare-stromboli.html",
+    "id": "mar-y-tierra",
+    "title": "Mar & Tierra",
+    "newsletter": "robin-collection/newsletters/mar-y-tierra.html",
     "stories": [
-      "robin-collection/stories/auqamare-stromboli/1.jpg",
-      "robin-collection/stories/auqamare-stromboli/2.jpg",
-      "robin-collection/stories/auqamare-stromboli/3.jpg",
-      "robin-collection/stories/auqamare-stromboli/4.jpg",
-      "robin-collection/stories/auqamare-stromboli/5.jpg",
-      "robin-collection/stories/auqamare-stromboli/6.jpg",
-      "robin-collection/stories/auqamare-stromboli/7.jpg"
+      "robin-collection/stories/mar-y-tierra/252.jpg",
+      "robin-collection/stories/mar-y-tierra/253.jpg",
+      "robin-collection/stories/mar-y-tierra/255.jpg",
+      "robin-collection/stories/mar-y-tierra/256.jpg",
+      "robin-collection/stories/mar-y-tierra/258.jpg"
     ],
-    "caseStudy": [
-      {
-        "label": "Hero Banner",
-        "text": "Named for a Mediterranean island, the hero leans fully into place and setting rather than product, reinforcing the Mediterranean-lifestyle direction the brand is building toward."
-      },
-      {
-        "label": "Featured Collection",
-        "text": "Two named prints/colorways (Aquamare, Stromboli) are featured side by side, letting the destination naming do the differentiating instead of a long product description."
-      },
-      {
-        "label": "Editorial Section",
-        "text": "Destination-led styling is the clearest premium signal in the lineup here \u2014 evoking travel and place is a heritage-brand move, not a fast-fashion one."
-      },
-      {
-        "label": "CTA",
-        "text": "Kept simple, so the destination fantasy built above is what closes the sale, not the button itself."
-      }
-    ]
+    "caseStudy": []
+  },
+  {
+    "id": "valldemosa",
+    "title": "Valldemosa",
+    "newsletter": "robin-collection/newsletters/valldemosa.html",
+    "stories": [],
+    "caseStudy": []
+  },
+  {
+    "id": "greens-of-the-season",
+    "title": "Greens of the Season",
+    "newsletter": "robin-collection/newsletters/greens-of-the-season.html",
+    "stories": [
+      "robin-collection/stories/greens-of-the-season/21.jpg",
+      "robin-collection/stories/greens-of-the-season/22.jpg",
+      "robin-collection/stories/greens-of-the-season/23.jpg",
+      "robin-collection/stories/greens-of-the-season/24.jpg",
+      "robin-collection/stories/greens-of-the-season/26.jpg",
+      "robin-collection/stories/greens-of-the-season/27.jpg"
+    ],
+    "caseStudy": []
+  },
+  {
+    "id": "summer-looks",
+    "title": "Summer Looks",
+    "newsletter": "robin-collection/newsletters/summer-looks.html",
+    "stories": [],
+    "caseStudy": []
+  },
+  {
+    "id": "best-bikinis",
+    "title": "Best Bikinis",
+    "newsletter": "robin-collection/newsletters/best-bikinis.html",
+    "stories": [
+      "robin-collection/stories/best-bikinis/49.jpg",
+      "robin-collection/stories/best-bikinis/50.jpg",
+      "robin-collection/stories/best-bikinis/51.jpg",
+      "robin-collection/stories/best-bikinis/52.jpg",
+      "robin-collection/stories/best-bikinis/53.jpg",
+      "robin-collection/stories/best-bikinis/54.jpg",
+      "robin-collection/stories/best-bikinis/55.jpg"
+    ],
+    "caseStudy": []
+  },
+  {
+    "id": "our-balconettes",
+    "title": "Our Balconettes",
+    "newsletter": "robin-collection/newsletters/our-balconettes.html",
+    "stories": [
+      "robin-collection/stories/our-balconettes/35.jpg",
+      "robin-collection/stories/our-balconettes/36.jpg",
+      "robin-collection/stories/our-balconettes/37.jpg",
+      "robin-collection/stories/our-balconettes/38.jpg",
+      "robin-collection/stories/our-balconettes/39.jpg",
+      "robin-collection/stories/our-balconettes/40.jpg",
+      "robin-collection/stories/our-balconettes/41.jpg"
+    ],
+    "caseStudy": []
+  },
+  {
+    "id": "bikini-triangulos",
+    "title": "Bikini Triàngulos",
+    "newsletter": "robin-collection/newsletters/bikini-triangulos.html",
+    "stories": [
+      "robin-collection/stories/bikini-triangulos/42.jpg",
+      "robin-collection/stories/bikini-triangulos/43.jpg",
+      "robin-collection/stories/bikini-triangulos/44.jpg",
+      "robin-collection/stories/bikini-triangulos/45.jpg",
+      "robin-collection/stories/bikini-triangulos/46.jpg",
+      "robin-collection/stories/bikini-triangulos/47.jpg"
+    ],
+    "caseStudy": []
+  },
+  {
+    "id": "un-verano-estampado",
+    "title": "Un Verano Estampado",
+    "newsletter": "robin-collection/newsletters/un-verano-estampado.html",
+    "stories": [
+      "robin-collection/stories/un-verano-estampado/29.jpg",
+      "robin-collection/stories/un-verano-estampado/30.jpg",
+      "robin-collection/stories/un-verano-estampado/31.jpg",
+      "robin-collection/stories/un-verano-estampado/32.jpg",
+      "robin-collection/stories/un-verano-estampado/33.jpg",
+      "robin-collection/stories/un-verano-estampado/34.jpg"
+    ],
+    "caseStudy": []
   }
 ]
