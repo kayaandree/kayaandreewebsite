@@ -303,7 +303,7 @@
       var src = imgUrl(folder, p.file);
 
       card.innerHTML =
-        '<figure><img src="' + src + '" alt="' + p.name + '" loading="lazy" decoding="async"></figure>' +
+        '<figure><img src="' + src + '" alt="' + p.name + '" decoding="async"></figure>' +
         '<figcaption>' +
         '  <h3>' + p.name + '</h3>' +
         (p.medium ? '<span class="painting-medium">' + p.medium + '</span>' : '') +
