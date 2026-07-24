@@ -690,6 +690,7 @@ body.is-loaded:not(.is-leaving) .page-veil {
   .painting-card--side-by-side {
     flex-direction: column;
     align-items: stretch;
+    gap: 0;
   }
 
   .painting-card--side-by-side figcaption {
@@ -1169,8 +1170,31 @@ body.is-loaded:not(.is-leaving) .page-veil {
   body { font-size: 16px; }
   .gallery { columns: 1; }
   .gallery.cols-4 { columns: 1; }
-  .site-header { padding: 1.2rem 1rem; }
-  .site-nav { gap: 0.8rem; flex-wrap: nowrap; overflow-x: auto; max-width: 60vw; scrollbar-width: none; }
+
+  /* Stacked header: shrink the logo to one line, stack nav links vertically,
+     then push --nav-h out so page content clears the taller header. */
+  :root { --nav-h: 235px; }
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 1.2rem 1rem;
+  }
+  .site-logo { font-size: 1.5rem; }
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    max-width: none;
+    overflow: visible;
+  }
   .site-nav::-webkit-scrollbar { display: none; }
-  .site-nav a { font-size: 0.6rem; letter-spacing: 0.12em; white-space: nowrap; }
+  .site-nav a { font-size: 0.65rem; letter-spacing: 0.12em; white-space: nowrap; }
+
+  /* Unify + shrink the three editorial title styles. */
+  .painting-card h3,
+  .event-group-header h2,
+  .writing-piece h2 {
+    font-size: 1.7rem;
+  }
 }
