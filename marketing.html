@@ -73,6 +73,385 @@
 
 <section class="client-section" data-animate>
   <span class="label">Client</span>
+  <h2>Pearla</h2>
+</section>
+
+<section class="client-project-page" id="pearla">
+  <p class="camp-hint">Click the deck to advance, or let it play — it auto-swipes every 7 seconds.</p>
+
+  <div class="client-split">
+    <div class="deck" id="pearla-deck" tabindex="0" role="group" aria-label="Pearla business plan, presentation slides">
+      <div class="deck-frame">
+        <img class="deck-slide" id="pearla-deck-img" src="pearla/slides/slide-01.jpg" alt="Pearla business plan — slide 1">
+      </div>
+      <div class="deck-dots" id="pearla-deck-dots"></div>
+      <span class="deck-caption">Pearla — Business Plan</span>
+    </div>
+
+    <div class="client-blurb">
+      <p class="walkthrough-intro" style="margin-bottom: 1.25rem;">Pearla is a brand I built around the idea that sustainability and individuality shouldn't be a trade-off — a premium accessories line made from recycled beads and ethically sourced fabrics, where every piece is one-of-one and digitally authenticated so its origin and ownership can't be faked.</p>
+      <div class="case-study">
+        <div class="case-step">
+          <p class="case-step-label">The idea</p>
+          <p class="case-step-text">Fast fashion has made accessories disposable and anonymous. Pearla transforms recycled materials into premium, artisanal pieces — each one verified with NFT-based authentication that proves its materials, provenance, and one-of-one status.</p>
+        </div>
+        <div class="case-step">
+          <p class="case-step-label">Who it's for</p>
+          <p class="case-step-text">Millennials aged 30–45, Europe-based at launch, style-conscious and digitally native — consumers who want "quiet quality" over logo-driven luxury, and care about provenance, resale value, and community as much as design.</p>
+        </div>
+        <div class="case-step">
+          <p class="case-step-label">Business model</p>
+          <p class="case-step-text">Direct-to-consumer first, expanding into selective pop-ups and flagship boutiques. A pre-order, made-to-order production model keeps inventory risk low and margins strong, positioned in the premium/bridge segment between mass brands and legacy luxury.</p>
+        </div>
+        <div class="case-step">
+          <p class="case-step-label">The edge</p>
+          <p class="case-step-text">Blockchain-verified authenticity, one-of-one customization, and a community built around material reuse — an identity that's genuinely difficult for mass competitors to copy without breaking their own scale economics.</p>
+        </div>
+        <div class="case-step case-step--philosophy">
+          <p class="case-step-label">Trajectory</p>
+          <p class="case-step-text">Self-funded through reinvested profit, launching across core European markets before phased expansion into the US, UAE, and UK — projected to scale from roughly €9.9M to over €35M in revenue as brand equity and margins compound.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="client-section" data-animate>
+  <span class="label">Client</span>
+  <h2>Costa Crociere</h2>
+</section>
+
+<section class="client-project-page" id="costa-crociere">
+  <p class="camp-hint">Click the deck to advance, or let it play — it auto-swipes every 7 seconds. Hover the research paper to read it.</p>
+
+  <div class="client-split">
+    <div class="deck" id="costa-deck" tabindex="0" role="group" aria-label="Costa Crociere Gen Z Market Entry Strategy, presentation slides">
+      <div class="deck-frame">
+        <img class="deck-slide" id="costa-deck-img" src="costa-crociere/slides/slide-01.jpg" alt="Costa Crociere Gen Z Market Entry Strategy — slide 1">
+      </div>
+      <div class="deck-dots" id="costa-deck-dots"></div>
+      <span class="deck-caption">Costa Crociere — Gen Z Market Entry Strategy</span>
+    </div>
+
+    <div class="costa-paper" id="costa-paper" tabindex="0" role="group" aria-label="Research Foundations for Costa Crociere Gen Z Market Entry, expand to read">
+      <div class="costa-paper-stack">
+        <img src="costa-crociere/research/page-01.jpg" alt="" class="costa-paper-page costa-paper-page--3" aria-hidden="true">
+        <img src="costa-crociere/research/page-01.jpg" alt="" class="costa-paper-page costa-paper-page--2" aria-hidden="true">
+        <img src="costa-crociere/research/page-01.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 1" class="costa-paper-page costa-paper-page--1">
+      </div>
+      <span class="costa-paper-caption">Research Foundations — hover to read</span>
+
+      <div class="costa-paper-expanded">
+        <div class="costa-paper-expanded-inner">
+          <img src="costa-crociere/research/page-01.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 1">
+          <img src="costa-crociere/research/page-02.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 2">
+          <img src="costa-crociere/research/page-03.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 3">
+          <img src="costa-crociere/research/page-04.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 4">
+          <img src="costa-crociere/research/page-05.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 5">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .client-project-page {
+    padding: 1rem var(--gutter) 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .client-split {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: start;
+  }
+
+  /* --- deck: auto-swiping / clickable slideshow, shared by every client presentation --- */
+  .deck {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .deck-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .deck-slide {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #111;
+    opacity: 1;
+    transition: opacity 0.35s var(--ease);
+  }
+
+  .deck-slide.is-fading {
+    opacity: 0;
+  }
+
+  .deck-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0.85rem;
+  }
+
+  .deck-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+
+  .deck-dot.is-active {
+    background: var(--accent);
+    transform: scale(1.35);
+  }
+
+  .deck-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 0.5rem;
+  }
+
+  /* --- blurb (Pearla): written explanation alongside the deck --- */
+  .client-blurb {
+    padding-top: 0.25rem;
+  }
+
+  /* --- paper (Costa Crociere): thumbnail stack that expands centered on hover --- */
+  .costa-paper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .costa-paper-stack {
+    position: relative;
+    width: 78%;
+    aspect-ratio: 612 / 792;
+  }
+
+  .costa-paper-page {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    transition: transform 0.25s var(--ease);
+  }
+
+  .costa-paper-page--2 {
+    transform: translate(6px, 6px) rotate(1.5deg);
+  }
+
+  .costa-paper-page--3 {
+    transform: translate(12px, 12px) rotate(3deg);
+  }
+
+  .costa-paper:hover .costa-paper-page--1,
+  .costa-paper:focus-visible .costa-paper-page--1 {
+    transform: translate(-4px, -4px) rotate(-1deg);
+  }
+
+  .costa-paper-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 0.85rem;
+  }
+
+  .costa-paper-expanded {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 5vw;
+    background: rgba(20, 20, 20, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease), background 0.3s var(--ease), visibility 0s linear 0.3s;
+  }
+
+  .costa-paper:hover .costa-paper-expanded,
+  .costa-paper:focus-visible .costa-paper-expanded,
+  .costa-paper-expanded.is-pinned {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: rgba(20, 20, 20, 0.55);
+    transition: opacity 0.3s var(--ease), background 0.3s var(--ease), visibility 0s linear 0s;
+  }
+
+  .costa-paper-expanded-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: min(720px, 90vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    transform: scale(0.96);
+    transition: transform 0.3s var(--ease);
+  }
+
+  .costa-paper:hover .costa-paper-expanded-inner,
+  .costa-paper:focus-visible .costa-paper-expanded-inner,
+  .costa-paper-expanded.is-pinned .costa-paper-expanded-inner {
+    transform: scale(1);
+  }
+
+  .costa-paper-expanded-inner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  }
+
+  /* --- responsive --- */
+  @media (max-width: 900px) {
+    .client-split {
+      grid-template-columns: 1fr;
+    }
+
+    .costa-paper-stack {
+      width: 55%;
+      margin: 0 auto;
+    }
+  }
+
+  @media (hover: none) {
+    .costa-paper-caption {
+      font-style: normal;
+    }
+  }
+</style>
+
+<script>
+  // Reusable auto-swiping / clickable slide deck, shared by every client
+  // presentation on this page.
+  function initDeck({ deckId, imgId, dotsId, slideCount, folder, altBase, interval = 7000 }) {
+    const deck = document.getElementById(deckId);
+    const deckImg = document.getElementById(imgId);
+    const dotsWrap = document.getElementById(dotsId);
+
+    if (!deck || !deckImg || !dotsWrap) return;
+
+    const dots = [];
+    for (let i = 0; i < slideCount; i++) {
+      const dot = document.createElement("span");
+      dot.className = "deck-dot";
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    }
+
+    let current = 0;
+    let timer = null;
+
+    function slidePath(index) {
+      const n = String(index + 1).padStart(2, "0");
+      return `${folder}/slide-${n}.jpg`;
+    }
+
+    function showSlide(index) {
+      current = (index + slideCount) % slideCount;
+
+      deckImg.classList.add("is-fading");
+      setTimeout(() => {
+        deckImg.src = slidePath(current);
+        deckImg.alt = `${altBase} — slide ${current + 1}`;
+        deckImg.classList.remove("is-fading");
+      }, 200);
+
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === current));
+
+      clearTimeout(timer);
+      timer = setTimeout(() => showSlide(current + 1), interval);
+    }
+
+    deck.addEventListener("click", () => showSlide(current + 1));
+    deck.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showSlide(current + 1);
+      } else if (e.key === "ArrowRight") {
+        showSlide(current + 1);
+      } else if (e.key === "ArrowLeft") {
+        showSlide(current - 1);
+      }
+    });
+
+    showSlide(0);
+  }
+
+  initDeck({
+    deckId: "pearla-deck",
+    imgId: "pearla-deck-img",
+    dotsId: "pearla-deck-dots",
+    slideCount: 13,
+    folder: "pearla/slides",
+    altBase: "Pearla business plan",
+  });
+
+  initDeck({
+    deckId: "costa-deck",
+    imgId: "costa-deck-img",
+    dotsId: "costa-deck-dots",
+    slideCount: 15,
+    folder: "costa-crociere/slides",
+    altBase: "Costa Crociere Gen Z Market Entry Strategy",
+  });
+
+  (function () {
+    // Tap-to-pin the research paper's expanded view on touch devices,
+    // since :hover never fires there.
+    const paper = document.getElementById("costa-paper");
+    const expanded = paper && paper.querySelector(".costa-paper-expanded");
+    if (!paper || !expanded) return;
+
+    paper.addEventListener("click", (e) => {
+      if (!window.matchMedia("(hover: none)").matches) return;
+      e.stopPropagation();
+      expanded.classList.toggle("is-pinned");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!paper.contains(e.target)) {
+        expanded.classList.remove("is-pinned");
+      }
+    });
+  })();
+</script>
+
+<section class="client-section" data-animate>
+  <span class="label">Client</span>
   <h2>The Artisan Gift Boxes</h2>
 </section>
 
