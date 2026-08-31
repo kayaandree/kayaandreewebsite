@@ -77,40 +77,50 @@
 </section>
 
 <section class="client-project-page" id="pearla">
-  <p class="camp-hint">Click the deck to advance, or let it play — it auto-swipes every 7 seconds.</p>
+  <p class="camp-hint">Click the deck to open it, then click through the slides.</p>
 
-  <div class="client-split">
-    <div class="deck" id="pearla-deck" tabindex="0" role="group" aria-label="Pearla business plan, presentation slides">
-      <div class="deck-frame">
-        <img class="deck-slide" id="pearla-deck-img" src="pearla/slides/slide-01.jpg" alt="Pearla business plan — slide 1">
-      </div>
-      <div class="deck-dots" id="pearla-deck-dots"></div>
-      <span class="deck-caption">Pearla — Business Plan</span>
+  <div class="deck deck--solo" id="pearla-deck" tabindex="0" role="group" aria-label="Pearla business plan, presentation slides — click to expand">
+    <div class="deck-frame">
+      <img class="deck-slide" id="pearla-deck-img" src="pearla/slides/slide-01.jpg" alt="Pearla business plan — slide 1">
     </div>
+    <div class="deck-dots" id="pearla-deck-dots"></div>
+    <span class="deck-caption">Pearla — Business Plan</span>
 
-    <div class="client-blurb">
-      <p class="walkthrough-intro" style="margin-bottom: 1.25rem;">Pearla is a brand I built around the idea that sustainability and individuality shouldn't be a trade-off — a premium accessories line made from recycled beads and ethically sourced fabrics, where every piece is one-of-one and digitally authenticated so its origin and ownership can't be faked.</p>
-      <div class="case-study">
-        <div class="case-step">
-          <p class="case-step-label">The idea</p>
-          <p class="case-step-text">Fast fashion has made accessories disposable and anonymous. Pearla transforms recycled materials into premium, artisanal pieces — each one verified with NFT-based authentication that proves its materials, provenance, and one-of-one status.</p>
+    <div class="deck-expanded overlay-backdrop" id="pearla-deck-expanded">
+      <button type="button" class="overlay-close" aria-label="Close presentation">&times;</button>
+      <div class="deck-expanded-inner">
+        <div class="deck-frame">
+          <img class="deck-slide" id="pearla-deck-expanded-img" src="pearla/slides/slide-01.jpg" alt="Pearla business plan — slide 1">
+          <div class="deck-tap deck-tap-left" aria-label="Previous slide"></div>
+          <div class="deck-tap deck-tap-right" aria-label="Next slide"></div>
         </div>
-        <div class="case-step">
-          <p class="case-step-label">Who it's for</p>
-          <p class="case-step-text">Millennials aged 30–45, Europe-based at launch, style-conscious and digitally native — consumers who want "quiet quality" over logo-driven luxury, and care about provenance, resale value, and community as much as design.</p>
-        </div>
-        <div class="case-step">
-          <p class="case-step-label">Business model</p>
-          <p class="case-step-text">Direct-to-consumer first, expanding into selective pop-ups and flagship boutiques. A pre-order, made-to-order production model keeps inventory risk low and margins strong, positioned in the premium/bridge segment between mass brands and legacy luxury.</p>
-        </div>
-        <div class="case-step">
-          <p class="case-step-label">The edge</p>
-          <p class="case-step-text">Blockchain-verified authenticity, one-of-one customization, and a community built around material reuse — an identity that's genuinely difficult for mass competitors to copy without breaking their own scale economics.</p>
-        </div>
-        <div class="case-step case-step--philosophy">
-          <p class="case-step-label">Trajectory</p>
-          <p class="case-step-text">Self-funded through reinvested profit, launching across core European markets before phased expansion into the US, UAE, and UK — projected to scale from roughly €9.9M to over €35M in revenue as brand equity and margins compound.</p>
-        </div>
+        <div class="deck-dots" id="pearla-deck-expanded-dots"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="client-blurb">
+    <p class="walkthrough-intro">Pearla is a brand I built around the idea that sustainability and individuality shouldn't be a trade-off — a premium accessories line made from recycled beads and ethically sourced fabrics, where every piece is one-of-one and digitally authenticated so its origin and ownership can't be faked.</p>
+    <div class="case-study case-study--grid">
+      <div class="case-step">
+        <p class="case-step-label">The idea</p>
+        <p class="case-step-text">Fast fashion has made accessories disposable and anonymous. Pearla transforms recycled materials into premium, artisanal pieces — each one verified with NFT-based authentication that proves its materials, provenance, and one-of-one status.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">Who it's for</p>
+        <p class="case-step-text">Millennials aged 30–45, Europe-based at launch, style-conscious and digitally native — consumers who want "quiet quality" over logo-driven luxury, and care about provenance, resale value, and community as much as design.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">Business model</p>
+        <p class="case-step-text">Direct-to-consumer first, expanding into selective pop-ups and flagship boutiques. A pre-order, made-to-order production model keeps inventory risk low and margins strong, positioned in the premium/bridge segment between mass brands and legacy luxury.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">The edge</p>
+        <p class="case-step-text">Blockchain-verified authenticity, one-of-one customization, and a community built around material reuse — an identity that's genuinely difficult for mass competitors to copy without breaking their own scale economics.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">Trajectory</p>
+        <p class="case-step-text">Self-funded through reinvested profit, launching across core European markets before phased expansion into the US, UAE, and UK — projected to scale from roughly €9.9M to over €35M in revenue as brand equity and margins compound.</p>
       </div>
     </div>
   </div>
@@ -122,15 +132,27 @@
 </section>
 
 <section class="client-project-page" id="costa-crociere">
-  <p class="camp-hint">Click the deck to advance, or let it play — it auto-swipes every 7 seconds. Hover the research paper to read it.</p>
+  <p class="camp-hint">Click the deck to open it, then click through the slides. Hover the research paper to read it.</p>
 
   <div class="client-split">
-    <div class="deck" id="costa-deck" tabindex="0" role="group" aria-label="Costa Crociere Gen Z Market Entry Strategy, presentation slides">
+    <div class="deck" id="costa-deck" tabindex="0" role="group" aria-label="Costa Crociere Gen Z Market Entry Strategy, presentation slides — click to expand">
       <div class="deck-frame">
         <img class="deck-slide" id="costa-deck-img" src="costa-crociere/slides/slide-01.jpg" alt="Costa Crociere Gen Z Market Entry Strategy — slide 1">
       </div>
       <div class="deck-dots" id="costa-deck-dots"></div>
       <span class="deck-caption">Costa Crociere — Gen Z Market Entry Strategy</span>
+
+      <div class="deck-expanded overlay-backdrop" id="costa-deck-expanded">
+        <button type="button" class="overlay-close" aria-label="Close presentation">&times;</button>
+        <div class="deck-expanded-inner">
+          <div class="deck-frame">
+            <img class="deck-slide" id="costa-deck-expanded-img" src="costa-crociere/slides/slide-01.jpg" alt="Costa Crociere Gen Z Market Entry Strategy — slide 1">
+            <div class="deck-tap deck-tap-left" aria-label="Previous slide"></div>
+            <div class="deck-tap deck-tap-right" aria-label="Next slide"></div>
+          </div>
+          <div class="deck-dots" id="costa-deck-expanded-dots"></div>
+        </div>
+      </div>
     </div>
 
     <div class="costa-paper" id="costa-paper" tabindex="0" role="group" aria-label="Research Foundations for Costa Crociere Gen Z Market Entry, expand to read">
@@ -141,7 +163,8 @@
       </div>
       <span class="costa-paper-caption">Research Foundations — hover to read</span>
 
-      <div class="costa-paper-expanded">
+      <div class="costa-paper-expanded overlay-backdrop">
+        <button type="button" class="overlay-close" aria-label="Close research paper preview">&times;</button>
         <div class="costa-paper-expanded-inner">
           <img src="costa-crociere/research/page-01.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 1">
           <img src="costa-crociere/research/page-02.jpg" alt="Research Foundations for Costa Crociere Gen Z Market Entry, page 2">
@@ -168,11 +191,61 @@
     align-items: start;
   }
 
-  /* --- deck: auto-swiping / clickable slideshow, shared by every client presentation --- */
+  /* --- deck: click-to-expand slideshow, shared by every client presentation --- */
   .deck {
     position: relative;
     cursor: pointer;
     outline: none;
+  }
+
+  /* --- shared lightbox chrome: fullscreen dimmed backdrop + close button --- */
+  .overlay-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 5vw;
+    background: rgba(20, 20, 20, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease), background 0.3s var(--ease), visibility 0s linear 0.3s;
+  }
+
+  .overlay-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: rgba(20, 20, 20, 0.55);
+    transition: opacity 0.3s var(--ease), background 0.3s var(--ease), visibility 0s linear 0s;
+  }
+
+  .overlay-close {
+    position: absolute;
+    top: max(1.5vh, 12px);
+    right: max(2vw, 12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s var(--ease), background 0.15s var(--ease);
+  }
+
+  .overlay-close:hover,
+  .overlay-close:focus-visible {
+    background: var(--accent);
+    transform: scale(1.08);
   }
 
   .deck-frame {
@@ -228,9 +301,56 @@
     margin-top: 0.5rem;
   }
 
-  /* --- blurb (Pearla): written explanation alongside the deck --- */
+  /* --- a deck shown on its own, not paired in .client-split (Pearla) --- */
+  .deck--solo {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  /* --- deck lightbox: full-size, click-through-manually view of the slides --- */
+  .deck-expanded-inner {
+    width: min(1100px, 92vw);
+    transform: scale(0.96);
+    transition: transform 0.3s var(--ease);
+  }
+
+  .deck-expanded.is-open .deck-expanded-inner {
+    transform: scale(1);
+  }
+
+  .deck-expanded .deck-frame {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    cursor: default;
+  }
+
+  .deck-tap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .deck-tap-left { left: 0; }
+  .deck-tap-right { right: 0; }
+
+  /* --- blurb (Pearla): written explanation below the deck, full width --- */
   .client-blurb {
-    padding-top: 0.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .case-study.case-study--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.75rem 2.25rem;
+  }
+
+  @media (max-width: 700px) {
+    .case-study.case-study--grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* --- paper (Costa Crociere): thumbnail stack that expands centered on hover --- */
@@ -268,8 +388,7 @@
     transform: translate(12px, 12px) rotate(3deg);
   }
 
-  .costa-paper:hover .costa-paper-page--1,
-  .costa-paper:focus-visible .costa-paper-page--1 {
+  .costa-paper.is-open .costa-paper-page--1 {
     transform: translate(-4px, -4px) rotate(-1deg);
   }
 
@@ -280,31 +399,6 @@
     font-style: italic;
     color: var(--ink-soft);
     margin-top: 0.85rem;
-  }
-
-  .costa-paper-expanded {
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5vh 5vw;
-    background: rgba(20, 20, 20, 0);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s var(--ease), background 0.3s var(--ease), visibility 0s linear 0.3s;
-  }
-
-  .costa-paper:hover .costa-paper-expanded,
-  .costa-paper:focus-visible .costa-paper-expanded,
-  .costa-paper-expanded.is-pinned {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    background: rgba(20, 20, 20, 0.55);
-    transition: opacity 0.3s var(--ease), background 0.3s var(--ease), visibility 0s linear 0s;
   }
 
   .costa-paper-expanded-inner {
@@ -322,9 +416,7 @@
     transition: transform 0.3s var(--ease);
   }
 
-  .costa-paper:hover .costa-paper-expanded-inner,
-  .costa-paper:focus-visible .costa-paper-expanded-inner,
-  .costa-paper-expanded.is-pinned .costa-paper-expanded-inner {
+  .costa-paper-expanded.is-open .costa-paper-expanded-inner {
     transform: scale(1);
   }
 
@@ -355,66 +447,135 @@
 </style>
 
 <script>
-  // Reusable auto-swiping / clickable slide deck, shared by every client
-  // presentation on this page.
-  function initDeck({ deckId, imgId, dotsId, slideCount, folder, altBase, interval = 7000 }) {
+  // Reusable click-to-expand slide deck, shared by every client presentation
+  // on this page. The small inline frame just opens a full-size lightbox;
+  // slides only change when the reader clicks through them — nothing
+  // advances on its own.
+  function initDeck({ deckId, imgId, dotsId, expandedId, expandedImgId, expandedDotsId, slideCount, folder, altBase }) {
     const deck = document.getElementById(deckId);
     const deckImg = document.getElementById(imgId);
     const dotsWrap = document.getElementById(dotsId);
+    const expanded = document.getElementById(expandedId);
+    const expandedImg = document.getElementById(expandedImgId);
+    const expandedDotsWrap = document.getElementById(expandedDotsId);
 
-    if (!deck || !deckImg || !dotsWrap) return;
+    if (!deck || !deckImg || !dotsWrap || !expanded || !expandedImg || !expandedDotsWrap) return;
 
-    const dots = [];
-    for (let i = 0; i < slideCount; i++) {
-      const dot = document.createElement("span");
-      dot.className = "deck-dot";
-      dotsWrap.appendChild(dot);
-      dots.push(dot);
+    const closeBtn = expanded.querySelector(".overlay-close");
+    const tapLeft = expanded.querySelector(".deck-tap-left");
+    const tapRight = expanded.querySelector(".deck-tap-right");
+
+    function buildDots(wrap) {
+      const built = [];
+      for (let i = 0; i < slideCount; i++) {
+        const dot = document.createElement("span");
+        dot.className = "deck-dot";
+        wrap.appendChild(dot);
+        built.push(dot);
+      }
+      return built;
     }
+
+    const dots = buildDots(dotsWrap);
+    const expandedDots = buildDots(expandedDotsWrap);
 
     let current = 0;
-    let timer = null;
 
     function slidePath(index) {
-      const n = String(index + 1).padStart(2, "0");
-      return `${folder}/slide-${n}.jpg`;
+      return `${folder}/slide-${String(index + 1).padStart(2, "0")}.jpg`;
     }
 
-    function showSlide(index) {
+    function updateDots() {
+      [dots, expandedDots].forEach((set) => {
+        set.forEach((dot, i) => dot.classList.toggle("is-active", i === current));
+      });
+    }
+
+    function go(index) {
       current = (index + slideCount) % slideCount;
+      const path = slidePath(current);
+      const alt = `${altBase} — slide ${current + 1}`;
 
-      deckImg.classList.add("is-fading");
+      deckImg.src = path;
+      deckImg.alt = alt;
+
+      expandedImg.classList.add("is-fading");
       setTimeout(() => {
-        deckImg.src = slidePath(current);
-        deckImg.alt = `${altBase} — slide ${current + 1}`;
-        deckImg.classList.remove("is-fading");
-      }, 200);
+        expandedImg.src = path;
+        expandedImg.alt = alt;
+        expandedImg.classList.remove("is-fading");
+      }, 150);
 
-      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === current));
-
-      clearTimeout(timer);
-      timer = setTimeout(() => showSlide(current + 1), interval);
+      updateDots();
     }
 
-    deck.addEventListener("click", () => showSlide(current + 1));
+    function openLightbox() {
+      expanded.classList.add("is-open");
+    }
+
+    function closeLightbox() {
+      expanded.classList.remove("is-open");
+    }
+
+    deck.addEventListener("click", (e) => {
+      if (expanded.contains(e.target)) return; // handled by the lightbox's own listeners
+      openLightbox();
+    });
+
     deck.addEventListener("keydown", (e) => {
+      if (e.target !== deck) return; // ignore keys bubbling up from inside the lightbox
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        showSlide(current + 1);
-      } else if (e.key === "ArrowRight") {
-        showSlide(current + 1);
-      } else if (e.key === "ArrowLeft") {
-        showSlide(current - 1);
+        openLightbox();
       }
     });
 
-    showSlide(0);
+    tapRight.addEventListener("click", (e) => {
+      e.stopPropagation();
+      go(current + 1);
+    });
+
+    tapLeft.addEventListener("click", (e) => {
+      e.stopPropagation();
+      go(current - 1);
+    });
+
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    // Clicking the dimmed backdrop itself (not the slide) closes it.
+    expanded.addEventListener("click", (e) => {
+      if (e.target === expanded) closeLightbox();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!deck.contains(e.target)) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!expanded.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowRight") go(current + 1);
+      else if (e.key === "ArrowLeft") go(current - 1);
+    });
+
+    // Set the first slide without the crossfade used for later navigation.
+    deckImg.src = slidePath(0);
+    deckImg.alt = `${altBase} — slide 1`;
+    expandedImg.src = slidePath(0);
+    expandedImg.alt = `${altBase} — slide 1`;
+    updateDots();
   }
 
   initDeck({
     deckId: "pearla-deck",
     imgId: "pearla-deck-img",
     dotsId: "pearla-deck-dots",
+    expandedId: "pearla-deck-expanded",
+    expandedImgId: "pearla-deck-expanded-img",
+    expandedDotsId: "pearla-deck-expanded-dots",
     slideCount: 13,
     folder: "pearla/slides",
     altBase: "Pearla business plan",
@@ -424,28 +585,78 @@
     deckId: "costa-deck",
     imgId: "costa-deck-img",
     dotsId: "costa-deck-dots",
+    expandedId: "costa-deck-expanded",
+    expandedImgId: "costa-deck-expanded-img",
+    expandedDotsId: "costa-deck-expanded-dots",
     slideCount: 15,
     folder: "costa-crociere/slides",
     altBase: "Costa Crociere Gen Z Market Entry Strategy",
   });
 
   (function () {
-    // Tap-to-pin the research paper's expanded view on touch devices,
-    // since :hover never fires there.
+    // The research paper preview opens on hover, but also pins open on
+    // click/tap so it doesn't vanish the moment the mouse moves — closed
+    // again via the X button, clicking outside, or Escape.
     const paper = document.getElementById("costa-paper");
+    const stack = paper && paper.querySelector(".costa-paper-stack");
     const expanded = paper && paper.querySelector(".costa-paper-expanded");
-    if (!paper || !expanded) return;
+    const closeBtn = expanded && expanded.querySelector(".overlay-close");
+    if (!paper || !stack || !expanded || !closeBtn) return;
 
-    paper.addEventListener("click", (e) => {
-      if (!window.matchMedia("(hover: none)").matches) return;
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    let pinned = false;
+
+    function open() {
+      expanded.classList.add("is-open");
+      paper.classList.add("is-open");
+    }
+
+    function close() {
+      expanded.classList.remove("is-open");
+      paper.classList.remove("is-open");
+      pinned = false;
+    }
+
+    if (canHover) {
+      paper.addEventListener("mouseenter", open);
+      paper.addEventListener("mouseleave", () => {
+        if (!pinned) close();
+      });
+    }
+
+    // Clicking the thumbnail pins the preview open (so it doesn't vanish
+    // the instant the mouse moves, and works at all on touch devices).
+    stack.addEventListener("click", (e) => {
       e.stopPropagation();
-      expanded.classList.toggle("is-pinned");
+      pinned = true;
+      open();
+    });
+
+    paper.addEventListener("keydown", (e) => {
+      if (e.target !== paper) return; // ignore keys bubbling up from the close button, etc.
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        pinned = true;
+        open();
+      }
+    });
+
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      close();
+    });
+
+    // Clicking the dimmed backdrop itself (not the preview content) closes it.
+    expanded.addEventListener("click", (e) => {
+      if (e.target === expanded) close();
     });
 
     document.addEventListener("click", (e) => {
-      if (!paper.contains(e.target)) {
-        expanded.classList.remove("is-pinned");
-      }
+      if (!paper.contains(e.target)) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
     });
   })();
 </script>
