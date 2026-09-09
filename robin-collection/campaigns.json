@@ -233,5 +233,24 @@
       "robin-collection/stories/un-verano-estampado/34.jpg"
     ],
     "caseStudy": []
+  },
+  {
+    "id": "venus",
+    "title": "Venus",
+    "newsletter": "",
+    "stories": [
+      "robin-collection/stories/venus/101.jpg",
+      "robin-collection/stories/venus/102.jpg",
+      "robin-collection/stories/venus/103.jpg",
+      "robin-collection/stories/venus/104.jpg",
+      "robin-collection/stories/venus/106.jpg",
+      "robin-collection/stories/venus/107.jpg",
+      "robin-collection/stories/venus/109.jpg",
+      "robin-collection/stories/venus/110.jpg",
+      "robin-collection/stories/venus/111.jpg",
+      "robin-collection/stories/venus/114.jpg",
+      "robin-collection/stories/venus/116.jpg",
+      "robin-collection/stories/venus/118.jpg"
+    ]
   }
 ]

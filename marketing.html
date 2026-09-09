@@ -32,40 +32,32 @@
 
 <section class="camp-page" id="camp-robin-collection">
   <p class="camp-hint">Scroll inside a phone to see the rest of that email.</p>
-  <div class="camp-carousel" id="camp-newsletter-carousel">
-    <div class="camp-carousel-track" id="camp-newsletter-track"></div>
+  <div class="camp-carousel camp-carousel--static" id="camp-newsletter-carousel">
+    <div class="camp-carousel-track camp-carousel-track--static" id="camp-newsletter-track"></div>
   </div>
 
   <p class="camp-hint">Click a story to move to the next photo.</p>
-  <div class="camp-carousel" id="camp-story-carousel">
-    <div class="camp-carousel-track" id="camp-story-track"></div>
+  <div class="camp-carousel camp-carousel--static" id="camp-story-carousel">
+    <div class="camp-carousel-track camp-carousel-track--static" id="camp-story-track"></div>
   </div>
 
-  <div class="camp-walkthrough">
-    <div class="walkthrough-block">
-      <div class="camp-title">Content Framework</div>
-      <p class="walkthrough-intro">Every send follows the same four-part structure, adapted to each collection's story.</p>
-      <div class="case-study">
-        <div class="case-step">
-          <p class="case-step-label">Hero</p>
-          <p class="case-step-text">Opens with a limited colorway, one named piece, a tagline, or a destination name. Committing to one angle reads as curated, not a catalog dump.</p>
+  <p class="camp-hint">Click the deck to open it, then click through the slides.</p>
+  <div class="deck deck--solo" id="robin-catalog-deck" tabindex="0" role="group" aria-label="Catálogo ROBIN — SS27, presentation slides — click to expand">
+    <div class="deck-frame">
+      <img class="deck-slide" id="robin-catalog-deck-img" src="robin-collection/catalogo/slides/slide-01.png" alt="Catálogo ROBIN — SS27 — slide 1">
+    </div>
+    <div class="deck-dots" id="robin-catalog-deck-dots"></div>
+    <span class="deck-caption">Catálogo ROBIN — SS27 — the catalog shown to wholesale clients</span>
+
+    <div class="deck-expanded overlay-backdrop" id="robin-catalog-deck-expanded">
+      <button type="button" class="overlay-close" aria-label="Close presentation">&times;</button>
+      <div class="deck-expanded-inner">
+        <div class="deck-frame">
+          <img class="deck-slide" id="robin-catalog-deck-expanded-img" src="robin-collection/catalogo/slides/slide-01.png" alt="Catálogo ROBIN — SS27 — slide 1">
+          <div class="deck-tap deck-tap-left" aria-label="Previous slide"></div>
+          <div class="deck-tap deck-tap-right" aria-label="Next slide"></div>
         </div>
-        <div class="case-step">
-          <p class="case-step-label">Featured</p>
-          <p class="case-step-text">Narrows the decision the shopper has to make, whether that's two colorways, one product in variants, or pieces shown both styled and standalone. Fewer choices, more clicks.</p>
-        </div>
-        <div class="case-step">
-          <p class="case-step-label">Editorial</p>
-          <p class="case-step-text">Where the claim gets proven — through foundational pieces built into a capsule, a hero piece given room to carry the send, sets shown styled together as proof they work, cross-category styling to build a bigger basket, or destination mood to sell a lifestyle.</p>
-        </div>
-        <div class="case-step">
-          <p class="case-step-label">CTA</p>
-          <p class="case-step-text">The hard sell already happened in the hero and editorial, so the ask itself should be the easiest moment.</p>
-        </div>
-        <div class="case-step case-step--philosophy">
-          <p class="case-step-label">Core philosophy</p>
-          <p class="case-step-text">Reduce decision fatigue at every stage, use naming and styling rather than discounting to signal a premium, considered brand, and let each collection's unique story do the differentiating while the format stays consistent.</p>
-        </div>
+        <div class="deck-dots" id="robin-catalog-deck-expanded-dots"></div>
       </div>
     </div>
   </div>
@@ -252,6 +244,12 @@
     overflow: hidden;
     background: #111;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  /* Robin catalog slides are 2000x1414 (~A4 landscape), not 16:9 — match the
+     frame to that ratio so object-fit: contain doesn't add letterboxing. */
+  #robin-catalog-deck .deck-frame {
+    aspect-ratio: 2000 / 1414;
   }
 
   .deck-slide {
@@ -447,7 +445,7 @@
   // on this page. The small inline frame just opens a full-size lightbox;
   // slides only change when the reader clicks through them — nothing
   // advances on its own.
-  function initDeck({ deckId, imgId, dotsId, expandedId, expandedImgId, expandedDotsId, slideCount, folder, altBase }) {
+  function initDeck({ deckId, imgId, dotsId, expandedId, expandedImgId, expandedDotsId, slideCount, folder, altBase, ext = "jpg" }) {
     const deck = document.getElementById(deckId);
     const deckImg = document.getElementById(imgId);
     const dotsWrap = document.getElementById(dotsId);
@@ -478,7 +476,7 @@
     let current = 0;
 
     function slidePath(index) {
-      return `${folder}/slide-${String(index + 1).padStart(2, "0")}.jpg`;
+      return `${folder}/slide-${String(index + 1).padStart(2, "0")}.${ext}`;
     }
 
     function updateDots() {
@@ -564,6 +562,19 @@
     expandedImg.alt = `${altBase} — slide 1`;
     updateDots();
   }
+
+  initDeck({
+    deckId: "robin-catalog-deck",
+    imgId: "robin-catalog-deck-img",
+    dotsId: "robin-catalog-deck-dots",
+    expandedId: "robin-catalog-deck-expanded",
+    expandedImgId: "robin-catalog-deck-expanded-img",
+    expandedDotsId: "robin-catalog-deck-expanded-dots",
+    slideCount: 17,
+    folder: "robin-collection/catalogo/slides",
+    altBase: "Catálogo ROBIN — SS27",
+    ext: "png",
+  });
 
   initDeck({
     deckId: "pearla-deck",
@@ -710,32 +721,18 @@
     }
   }
 
-  /* --- walkthrough, stacked below both rows --- */
-  .camp-walkthrough {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    max-width: 640px;
-    margin: 0 auto;
+  /* --- a fixed, non-scrolling set of phones: no motion, no mask fade --- */
+  .camp-carousel--static {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
-  .walkthrough-block {
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--accent-soft);
-  }
-
-  .walkthrough-block:first-child {
-    padding-top: 0;
-    border-top: none;
-  }
-
-  .camp-title {
-    font-family: var(--font-accent);
-    font-size: 1.9rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
-    text-align: center;
+  .camp-carousel-track--static {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   /* --- shared phone frame --- */
@@ -861,12 +858,6 @@
     margin: 0 0 1.75rem;
   }
 
-  .case-step--philosophy {
-    margin-top: 0.5rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--accent-soft);
-  }
-
   /* --- responsive: stack on narrower screens --- */
   @media (max-width: 900px) {
     .case-study {
@@ -965,6 +956,10 @@
     track.style.animationDuration = `${duration}s`;
   }
 
+  // Fixed picks — shown as static rows, not the full lists.
+  const FEATURED_NEWSLETTER_IDS = ["essentials", "best-bikinis", "our-balconettes", "un-verano-estampado"];
+  const FEATURED_STORY_IDS = ["essentials", "stella-suit", "best-bikinis", "venus"];
+
   function renderMarketingSections(jsonPath) {
     fetch(jsonPath)
       .then((res) => res.json())
@@ -972,23 +967,21 @@
         const newsletterTrack = document.getElementById("camp-newsletter-track");
         const storyTrack = document.getElementById("camp-story-track");
 
-        // Row 1: every newsletter, duplicated once so the -50% scroll loops seamlessly.
-        for (let copy = 0; copy < 2; copy++) {
-          campaigns.forEach((camp) => {
-            newsletterTrack.appendChild(buildNewsletterPhone(camp.newsletter));
-          });
-        }
+        // Row 1: a fixed set of 4 newsletters, static — no motion, no duplication.
+        const featuredNewsletters = FEATURED_NEWSLETTER_IDS
+          .map((id) => campaigns.find((camp) => camp.id === id))
+          .filter(Boolean);
+        featuredNewsletters.forEach((camp) => {
+          newsletterTrack.appendChild(buildNewsletterPhone(camp.newsletter));
+        });
 
-        // Row 2: only campaigns with story photos so far, same duplicated scroll.
-        const withStories = campaigns.filter((camp) => camp.stories && camp.stories.length);
-        for (let copy = 0; copy < 2; copy++) {
-          withStories.forEach((camp) => {
-            storyTrack.appendChild(buildStoryPhone(camp.stories));
-          });
-        }
-
-        applyCarouselSpeed(newsletterTrack);
-        applyCarouselSpeed(storyTrack);
+        // Row 2: a fixed set of 4 stories, same static treatment.
+        const featuredStories = FEATURED_STORY_IDS
+          .map((id) => campaigns.find((camp) => camp.id === id))
+          .filter((camp) => camp && camp.stories && camp.stories.length);
+        featuredStories.forEach((camp) => {
+          storyTrack.appendChild(buildStoryPhone(camp.stories));
+        });
       })
       .catch((err) => {
         console.error(`Couldn't load ${jsonPath}:`, err);

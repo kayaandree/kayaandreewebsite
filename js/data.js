@@ -150,21 +150,28 @@ const SITE_DATA = {
       {
         key: 'elisabetta',
         folder: 'Elisabetta',
-        title: 'Elisabetta',
-        images: [],
-        layout: []
-      },
-      {
-        key: 'street',
-        folder: '',
-        title: 'Street',
+        title: 'Eli and Man',
         images: [
-          '8528 - 2026.06.05 - Kaya Kelly - Kodak Gold 200 -2 copie.jpg',
-          'ccd37838-accb-49a3-a7e7-d002e598a9dd_rw_1920 copie.jpg',
-          'IMG_7142 copie.jpg'
+          'eli1.jpg',
+          'eli2.jpg',
+          'eli3.jpg',
+          'eli4.jpg',
+          'eli6.jpg',
+          'eli7.jpg',
+          'eli8.png',
+          'eli9.jpg',
+          'eli10.jpg',
+          'eli11.jpg',
+          'eli12.jpg',
+          'eli13.jpg',
+          'eli14.jpg'
         ],
+        // 13 photos: a row of 4, then three even rows of 3.
         layout: [
-          ['8528 - 2026.06.05 - Kaya Kelly - Kodak Gold 200 -2 copie.jpg', 'ccd37838-accb-49a3-a7e7-d002e598a9dd_rw_1920 copie.jpg', 'IMG_7142 copie.jpg']
+          ['eli1.jpg', 'eli2.jpg', 'eli3.jpg', 'eli4.jpg'],
+          ['eli6.jpg', 'eli7.jpg', 'eli8.png'],
+          ['eli9.jpg', 'eli10.jpg', 'eli11.jpg'],
+          ['eli12.jpg', 'eli13.jpg', 'eli14.jpg']
         ]
       }
     ]
