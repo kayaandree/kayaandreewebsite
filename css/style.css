@@ -633,15 +633,16 @@ body.is-loaded:not(.is-leaving) .page-veil {
 }
 
 .painting-card--shrink {
-  padding: 0 96px;
+  padding: 0 clamp(96px, 12vw, 190px);
 }
 
 .painting-card--smaller {
   padding: 0 48px;
 }
 
-.painting-card--bigger {
-  margin: 0 -24px;
+/* A lone painting shown larger than the usual half width. */
+.painting-row--single > .painting-card--bigger {
+  flex-basis: 60%;
 }
 
 /* A little extra breathing room above and below a full-width piece. */
@@ -655,9 +656,6 @@ body.is-loaded:not(.is-leaving) .page-veil {
     padding: 0;
   }
 
-  .painting-card--bigger {
-    margin: 0;
-  }
 }
 
 .painting-card .painting-medium {
