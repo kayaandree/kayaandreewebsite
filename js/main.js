@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kaya Kelly — Portfolio behavior
+   Kaya Andrée — Portfolio behavior
    Custom cursor, page transitions, scroll reveal, galleries, lightbox.
    ========================================================================== */
 
