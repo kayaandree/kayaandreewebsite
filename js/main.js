@@ -297,7 +297,9 @@
         (p.wideText ? ' painting-card--wide-text' : '') +
         (p.sideBySide ? ' painting-card--side-by-side' : '') +
         (p.imgBigger ? ' painting-card--img-bigger' : '') +
-        (p.imgMuchBigger ? ' painting-card--img-much-bigger' : '');
+        (p.imgMuchBigger ? ' painting-card--img-much-bigger' : '') +
+        (p.imgScale ? ' painting-card--img-scaled' : '');
+      if (p.imgScale) card.style.setProperty('--img-scale', p.imgScale);
       card.setAttribute('data-animate', 'fade');
 
       var src = imgUrl(folder, p.file);

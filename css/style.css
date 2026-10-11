@@ -615,6 +615,12 @@ body.is-loaded:not(.is-leaving) .page-veil {
   margin: 0 -24px;
 }
 
+/* Narrows the artwork (aspect ratio untouched) so it matches the height of
+   its neighbour in the row. Scale comes from imgScale in data.js. */
+.painting-card--img-scaled figure {
+  width: calc(var(--img-scale, 1) * 100%);
+}
+
 @media (max-width: 640px) {
   .painting-card--shrink,
   .painting-card--smaller {
@@ -742,29 +748,6 @@ body.is-loaded:not(.is-leaving) .page-veil {
 .event-group-header .event-sub-label {
   display: block;
   margin-top: 0.6rem;
-}
-
-.event-video-wrap {
-  padding: 0 var(--gutter) 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.event-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #000;
-  cursor: pointer;
-}
-
-.event-video-desc {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 var(--gutter) 2rem;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  text-align: center;
 }
 
 /* Film grainy aesthetic — a full-bleed sub-section within the photography page */
@@ -1160,6 +1143,7 @@ body.is-loaded:not(.is-leaving) .page-veil {
 
 @media (max-width: 900px) {
   .painting-grid { grid-template-columns: 1fr; }
+  .painting-card--img-scaled figure { width: 100%; }
   .gallery { columns: 2; }
   .gallery.cols-4 { columns: 2; }
   .lightbox-inner { flex-direction: column; }

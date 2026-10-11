@@ -12,7 +12,7 @@ const SITE_DATA = {
 
   // Artist statement lifted from the top of "Painting descriptions.pdf"
   paintingsStatement:
-    "It is hard to express what is not meant to be defined. I am most inspired by love and spite. Each piece starts as a hum in the back of my throat growing louder until I can’t constrain it. Then I make something and put it here.",
+    "It is hard to express what is not meant to be defined. I am most inspired by love and spite.",
 
   paintings: {
     folder: 'paintings',
@@ -24,14 +24,13 @@ const SITE_DATA = {
         fullWidth: true,
         sideBySide: true,
         imgBigger: true,
-        desc: "Inspired by Plato’s Analogy of the cave, this piece comments on our inability to see. We may sometimes have a glimpse into the way things are or why they are that way but our grasp is limited and irrational. Our understanding of the present is molded by what we have learned in the past. We never experience anything without any prior existence. Our experience of reality is merely a perception. Until we understand that, we are trapped in the cycles and patterns of our reactions.\n\nTo break away from this, you must understand your oneness with this world. You are not individual, the world is not your other. We are collective, connected, whatever you want to call it, we are one."
+        desc: "Inspired by Plato’s Analogy of the cave, this piece comments on our inability to see. We may sometimes have a glimpse into the way things are or why they are that way but our grasp is limited and irrational. Our understanding of the present is molded by what we have learned in the past. We never experience anything without any prior existence. Our experience of reality is merely a perception. Until we understand that, we are trapped in the cycles and patterns of our reactions.\n\nTo break away from this, you must understand your oneness with this world. You are not individual, the world is not your other."
       },
       {
         file: 'What?.jpg',
-        name: 'What?',
+        name: 'Small',
         medium: 'Mixed Media on Paper, 2022',
         alignEnd: true,
-        desc: 'I think therefore'
       },
       {
         file: 'ahah.jpg',
@@ -39,13 +38,12 @@ const SITE_DATA = {
         medium: 'Color pencil on paper, 2023',
         cropTop: true,
         alignEnd: true,
-        desc: 'Too much to say.'
       },
       {
         file: 'Lily Lady.JPG',
         name: 'Lily Lady',
         medium: 'Acrylic on canvas, 2025',
-        desc: 'Lily Lady lives in Lily Land\nLily Lady never chose to be a Lily Lady but\nLily Lady was born in Lily Land so\nLily Lady must be a Lily Lady\nLily Lady is the reason Lily Land is Lily Land is the reason\nLily Lady is Lily Lady\nLily Lady has never considered if she liked living in Lily Land or if she liked being a Lily Lady'
+        desc: 'Lily Lady lives in Lily Land\nLily Lady never chose to be a Lily Lady but\nLily Lady was born in Lily Land so\nLily Lady must be a Lily Lady\nLily Lady is the reason Lily Land is Lily Land is the reason\nLily Lady is Lily Lady\nLily Lady has never considered if\nLily Lady liked living in Lily Land or if\nLily Lady liked being a\nLily Lady'
       },
       {
         file: 'Just One More.jpg',
@@ -90,18 +88,17 @@ const SITE_DATA = {
         desc: "Pour cette œuvre, j’ai dû prendre des centaines de photos de la Martinique, les découper et les recoller afin de représenter une mulâtresse, une femme typique de la Martinique. J’ai été inspirée par la poterie de Sylvain Fillon. Beaucoup des poteries qu’il crée rendent hommage à la Martinique et à la culture martiniquaise.\n\nElle porte un foulard en tissu madras, qui a été introduit en Martinique lorsque les colons ont ramené des Indiens pour faire le travail que les esclaves nouvellement libérés ne voulaient plus faire. À ses oreilles, elle porte des boucles d’oreilles créoles, que toutes les filles rêvent de porter quand elles seront plus grandes.\n\nOn oublie souvent notre histoire et on n’apprécie pas assez notre culture à cause de cela. Petite, on se moquait de moi parce que j’étais martiniquaise, en disant qu’on n’était pas des gens civilisés, qu’on venait d’un pays pauvre ou qu’on avait un accent drôle. Aujourd’hui, je ne pourrais pas être plus fière de mon pays."
       },
       {
-        file: 'From Memory.jpg',
-        name: 'From Memory',
-        medium: 'Acrylic on canvas, 2025',
-        fullWidth: true,
-        shrink: true,
-        desc: 'You are familiar.'
+        file: 'Lol.jpg',
+        name: 'Lol',
+        medium: 'Mixed media on canvas, 2026',
       },
       {
         file: 'Simple Stupid Swirly Love.JPG',
         name: 'Stupid Swirly Love',
         medium: 'Acrylic on paper, 2023',
-        smaller: true,
+        // Narrowed so its height matches Lol beside it (Lol is 1178x1500,
+        // this is 2726x3822: 1.2733 / 1.4021 = 0.908). Aspect ratio unchanged.
+        imgScale: 0.908,
         desc: 'Blah blah blah big feelings blah blah blah who cares?'
       },
       {
@@ -150,28 +147,15 @@ const SITE_DATA = {
       {
         key: 'elisabetta',
         folder: 'Elisabetta',
-        title: 'Eli and Man',
+        title: 'Eli',
         images: [
           'eli1.jpg',
-          'eli2.jpg',
           'eli3.jpg',
-          'eli4.jpg',
-          'eli6.jpg',
-          'eli7.jpg',
-          'eli8.png',
-          'eli9.jpg',
-          'eli10.jpg',
-          'eli11.jpg',
-          'eli12.jpg',
-          'eli13.jpg',
-          'eli14.jpg'
+          'eli13.jpg'
         ],
-        // 13 photos: a row of 4, then three even rows of 3.
+        // 3 photos: a single row of 3.
         layout: [
-          ['eli1.jpg', 'eli2.jpg', 'eli3.jpg', 'eli4.jpg'],
-          ['eli6.jpg', 'eli7.jpg', 'eli8.png'],
-          ['eli9.jpg', 'eli10.jpg', 'eli11.jpg'],
-          ['eli12.jpg', 'eli13.jpg', 'eli14.jpg']
+          ['eli1.jpg', 'eli3.jpg', 'eli13.jpg']
         ]
       }
     ]
@@ -188,58 +172,43 @@ const SITE_DATA = {
         images: [
           '1-IMG_1520 copie.jpg',
           '2-IMG_8659 copie.jpg',
-          '3-IMG_3307 2 copie.jpg',
-          '4-IMG_5461 copie.jpg',
           '5-IMG_8546 copie.jpg',
-          '6-IMG_8547 copie.jpg',
-          '7-IMG_8551 copie.jpg',
-          '8-IMG_5981 copie.jpg',
           '9-IMG_8709 copie.jpg',
-          '10-IMG_5926 copie.jpg',
+          '25-red-dance.jpg',
           '11-IMG_8737 copie.jpg',
           '12-IMG_8700 copie.jpg',
-          '13-IMG_8763 copie.jpg',
-          '14-IMG_8696 copy copie.jpg',
           '15-IMG_8572 copie.jpg',
           '16-IMG_8566 copie.jpg',
-          '17-IMG_5961 copie.jpg',
-          '18-IMG_8557 copie.jpg',
-          '20-IMG_8480_Nero_AI_Image_Denoiser_100% copie.jpeg',
           '21-IMG_8632 copie.jpg',
-          '22-IMG_5949 copie.jpg',
           '23-IMG_8515 copie.jpg'
         ],
-        // Rows 1-4: simple pairs/trios. Row 5: 11 next to 12-over-13 stacked.
-        // Row 6: 15-over-16 stacked next to 14. Rows 7-8 (17,18,20,21,22,23):
-        // free arrangement, two rows of three. 19 and 24 intentionally left out.
+        // Row 1: 1+2. Row 2: 5, 9, 25 (red dance-floor shot).
+        // Row 3: 11+12. Row 4: 15+16. Row 5: 21+23.
         layout: [
           ['1-IMG_1520 copie.jpg', '2-IMG_8659 copie.jpg'],
-          ['3-IMG_3307 2 copie.jpg', '4-IMG_5461 copie.jpg'],
-          ['5-IMG_8546 copie.jpg', '6-IMG_8547 copie.jpg', '7-IMG_8551 copie.jpg'],
-          ['8-IMG_5981 copie.jpg', '9-IMG_8709 copie.jpg', '10-IMG_5926 copie.jpg'],
-          ['11-IMG_8737 copie.jpg', ['12-IMG_8700 copie.jpg', '13-IMG_8763 copie.jpg']],
-          [['15-IMG_8572 copie.jpg', '16-IMG_8566 copie.jpg'], '14-IMG_8696 copy copie.jpg'],
-          ['17-IMG_5961 copie.jpg', '18-IMG_8557 copie.jpg', '20-IMG_8480_Nero_AI_Image_Denoiser_100% copie.jpeg'],
-          ['21-IMG_8632 copie.jpg', '22-IMG_5949 copie.jpg', '23-IMG_8515 copie.jpg']
+          ['5-IMG_8546 copie.jpg', '9-IMG_8709 copie.jpg', '25-red-dance.jpg'],
+          ['11-IMG_8737 copie.jpg', '12-IMG_8700 copie.jpg'],
+          ['15-IMG_8572 copie.jpg', '16-IMG_8566 copie.jpg'],
+          ['21-IMG_8632 copie.jpg', '23-IMG_8515 copie.jpg']
         ]
       },
       {
         key: 'boat',
-        folder: 'boat',
-        title: 'Boat Party, 2025',
+        folder: 'boat 2026',
+        title: 'Boat Party, 2026',
         headingStyle: 'label',
         images: [
-          '1-IMG_6198 copie.jpg',
-          '2-IMG_6201 copie.jpg',
-          '3-IMG_6160 copie.jpg',
-          '4- IMG_6176 copie.jpg',
-          '5-IMG_6053 copie.jpg'
+          '1.jpg',
+          '2.jpg',
+          '3.jpg',
+          '4.jpg',
+          '5.jpg'
         ],
-        // Row 1: photos 1+2 side by side (1 very slightly zoomed/cropped in its frame).
-        // Row 2: photo 3 next to 4-over-5 stacked.
+        // Row 1: photo 1 (portrait) next to 2-over-3 stacked.
+        // Row 2: photo 4 (portrait) next to 5.
         layout: [
-          [{ file: '1-IMG_6198 copie.jpg', zoom: 1.06 }, '2-IMG_6201 copie.jpg'],
-          ['3-IMG_6160 copie.jpg', ['4- IMG_6176 copie.jpg', '5-IMG_6053 copie.jpg']]
+          ['1.jpg', ['2.jpg', '3.jpg']],
+          ['4.jpg', '5.jpg']
         ]
       },
       {
@@ -248,24 +217,15 @@ const SITE_DATA = {
         title: 'Integration Weekend, 2025',
         headingStyle: 'label',
         images: [
-          'IMG_5498 copie.jpg',
           'IMG_5503 copie.jpg',
-          'IMG_5512 copie.jpg',
-          'IMG_5513 copie.jpg',
           'IMG_5521 copie.jpg',
           'IMG_5570 copie.jpg',
-          'IMG_5611 copie.jpg',
-          'IMG_5615 copie.jpg',
-          'IMG_5713 copie.jpg',
           'IMG_5721 copie-2.jpg',
           'IMG_5754 copie-2.jpg'
         ],
-        // 11 photos: three even rows of 3, then a final row of 2 — every row
-        // still full width and matched height, so edges stay straight.
+        // 5 photos: a row of 3 landscapes, then the 2 portraits side by side.
         layout: [
-          ['IMG_5498 copie.jpg', 'IMG_5503 copie.jpg', 'IMG_5512 copie.jpg'],
-          ['IMG_5513 copie.jpg', 'IMG_5521 copie.jpg', 'IMG_5570 copie.jpg'],
-          ['IMG_5611 copie.jpg', 'IMG_5615 copie.jpg', 'IMG_5713 copie.jpg'],
+          ['IMG_5503 copie.jpg', 'IMG_5521 copie.jpg', 'IMG_5570 copie.jpg'],
           ['IMG_5721 copie-2.jpg', 'IMG_5754 copie-2.jpg']
         ]
       }
