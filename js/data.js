@@ -59,6 +59,7 @@ const SITE_DATA = {
         fullWidth: true,
         sideBySide: true,
         imgMuchBigger: true,
+        spaceAround: true,
         desc: "Are you thinking with your dick for biological, evolutionary, or societal reasons?\n\nWhat do we do in the inevitable case that it's actually a fun mix of all three?\n\nWhile we figure this out, do you mind not looking at my boobs, please?"
       },
       {
@@ -72,6 +73,9 @@ const SITE_DATA = {
         file: 'You Are The River Btw.jpg',
         name: 'You Are The River Btw',
         medium: 'Oil on a piece of cardboard, 2024',
+        // Narrowed so its height matches Do You Really? beside it (1920x2459 vs
+        // this 1920x2741: 2459 / 2741 = 0.897). Aspect ratio unchanged.
+        imgScale: 0.897,
         desc: 'Do not blame the river because you have stumbled and fallen into it.'
       },
       {

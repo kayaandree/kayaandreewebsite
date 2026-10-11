@@ -615,6 +615,11 @@ body.is-loaded:not(.is-leaving) .page-veil {
   margin: 0 -24px;
 }
 
+/* A little extra breathing room above and below a full-width piece. */
+.painting-card--space-around {
+  margin-block: 2rem;
+}
+
 /* Narrows the artwork (aspect ratio untouched) so it matches the height of
    its neighbour in the row. Scale comes from imgScale in data.js. */
 .painting-card--img-scaled figure {

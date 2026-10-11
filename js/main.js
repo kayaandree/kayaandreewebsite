@@ -298,7 +298,8 @@
         (p.sideBySide ? ' painting-card--side-by-side' : '') +
         (p.imgBigger ? ' painting-card--img-bigger' : '') +
         (p.imgMuchBigger ? ' painting-card--img-much-bigger' : '') +
-        (p.imgScale ? ' painting-card--img-scaled' : '');
+        (p.imgScale ? ' painting-card--img-scaled' : '') +
+        (p.spaceAround ? ' painting-card--space-around' : '');
       if (p.imgScale) card.style.setProperty('--img-scale', p.imgScale);
       card.setAttribute('data-animate', 'fade');
 
