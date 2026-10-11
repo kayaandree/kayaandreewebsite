@@ -977,6 +977,8 @@ body.is-loaded:not(.is-leaving) .page-veil {
   max-width: 1400px;
   margin: 0 auto;
   padding: calc(var(--nav-h) + 3rem) var(--gutter) 8rem;
+  /* Nudge the photo + text a little right of the left gutter. */
+  padding-left: calc(var(--gutter) + clamp(2rem, 6vw, 6rem));
 }
 
 .info-intro .info-photo {
@@ -1004,6 +1006,7 @@ body.is-loaded:not(.is-leaving) .page-veil {
   .info-intro {
     flex-direction: column;
     align-items: flex-start;
+    padding-left: var(--gutter);
   }
   .info-intro .info-photo {
     flex: none;
