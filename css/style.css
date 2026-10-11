@@ -562,10 +562,11 @@ body.is-loaded:not(.is-leaving) .page-veil {
 
 /* Painting grid gets more room + caption beneath. Full artwork always visible, no cropping. */
 .painting-grid {
+  --pair-gap: clamp(2rem, 5vw, 4rem);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: calc(clamp(2rem, 5vw, 5rem) + 1cm) clamp(2rem, 5vw, 4rem);
+  gap: calc(clamp(2rem, 5vw, 5rem) + 1cm) var(--pair-gap);
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 var(--gutter) 5rem;
@@ -573,6 +574,35 @@ body.is-loaded:not(.is-leaving) .page-veil {
 
 .painting-card figure {
   overflow: hidden;
+}
+
+/* Two paintings side by side: widths follow each artwork's aspect ratio
+   (--ratio, set in main.js) so both are the same height and every row has
+   the same side margins and the same gap between paintings. */
+.painting-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--pair-gap);
+}
+
+.painting-row > .painting-card {
+  flex: var(--ratio, 1) 1 0;
+  min-width: 0;
+}
+
+.painting-row > .painting-card figure img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* A painting left alone on a row: half width, centred. */
+.painting-row--single {
+  justify-content: center;
+}
+
+.painting-row--single > .painting-card {
+  flex: 0 0 calc((100% - var(--pair-gap)) / 2);
 }
 
 .painting-card img {
@@ -606,14 +636,6 @@ body.is-loaded:not(.is-leaving) .page-veil {
   padding: 0 96px;
 }
 
-.painting-card--crop-top img {
-  margin-top: -1cm;
-}
-
-.painting-card--align-end {
-  align-self: end;
-}
-
 .painting-card--smaller {
   padding: 0 48px;
 }
@@ -627,12 +649,6 @@ body.is-loaded:not(.is-leaving) .page-veil {
   margin-block: 2rem;
 }
 
-/* Narrows the artwork (aspect ratio untouched) so it matches the height of
-   its neighbour in the row. Scale comes from imgScale in data.js. */
-.painting-card--img-scaled figure {
-  width: calc(var(--img-scale, 1) * 100%);
-}
-
 @media (max-width: 640px) {
   .painting-card--shrink,
   .painting-card--smaller {
@@ -641,10 +657,6 @@ body.is-loaded:not(.is-leaving) .page-veil {
 
   .painting-card--bigger {
     margin: 0;
-  }
-
-  .painting-card--crop-top img {
-    margin-top: -0.5cm;
   }
 }
 
@@ -1155,7 +1167,9 @@ body.is-loaded:not(.is-leaving) .page-veil {
 
 @media (max-width: 900px) {
   .painting-grid { grid-template-columns: 1fr; }
-  .painting-card--img-scaled figure { width: 100%; }
+  .painting-row { flex-direction: column; gap: calc(clamp(2rem, 5vw, 5rem) + 1cm); }
+  .painting-row > .painting-card,
+  .painting-row--single > .painting-card { flex: none; width: 100%; }
   .gallery { columns: 2; }
   .gallery.cols-4 { columns: 2; }
   .lightbox-inner { flex-direction: column; }

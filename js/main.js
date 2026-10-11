@@ -285,22 +285,26 @@
       };
     });
 
+    // Paintings that aren't full width are laid out in rows of two. Each card
+    // grows in proportion to its artwork's aspect ratio, so both paintings in
+    // a row end up exactly the same height and the row always fills the same
+    // width: identical side margins and gap on every row. A painting left on
+    // its own is centred at half width.
+    var row = null;
+
     paintings.forEach(function (p, i) {
       var card = document.createElement('article');
       card.className = 'painting-card cursor-target' +
         (p.fullWidth ? ' painting-card--full' : '') +
         (p.shrink ? ' painting-card--shrink' : '') +
         (p.cropTop ? ' painting-card--crop-top' : '') +
-        (p.alignEnd ? ' painting-card--align-end' : '') +
         (p.smaller ? ' painting-card--smaller' : '') +
         (p.bigger ? ' painting-card--bigger' : '') +
         (p.wideText ? ' painting-card--wide-text' : '') +
         (p.sideBySide ? ' painting-card--side-by-side' : '') +
         (p.imgBigger ? ' painting-card--img-bigger' : '') +
         (p.imgMuchBigger ? ' painting-card--img-much-bigger' : '') +
-        (p.imgScale ? ' painting-card--img-scaled' : '') +
         (p.spaceAround ? ' painting-card--space-around' : '');
-      if (p.imgScale) card.style.setProperty('--img-scale', p.imgScale);
       card.setAttribute('data-animate', 'fade');
 
       var src = imgUrl(folder, p.file);
@@ -317,8 +321,35 @@
         Lightbox.open(lightboxItems, i);
       });
 
-      container.appendChild(card);
+      if (p.fullWidth) {
+        row = null;
+        container.appendChild(card);
+      } else {
+        if (!row || row.children.length === 2) {
+          row = document.createElement('div');
+          row.className = 'painting-row';
+          container.appendChild(row);
+        }
+        row.appendChild(card);
+
+        // cropTop trims a sliver off the top of the artwork (fraction of height).
+        var crop = p.cropTop ? 0.055 : 0;
+        var img = card.querySelector('img');
+        var fitToRatio = function () {
+          if (!img.naturalWidth) return;
+          var ratio = img.naturalWidth / (img.naturalHeight * (1 - crop));
+          card.style.setProperty('--ratio', ratio);
+          card.querySelector('figure').style.aspectRatio = String(ratio);
+        };
+        if (img.complete) fitToRatio(); else img.addEventListener('load', fitToRatio);
+      }
+
       registerAnimated(card);
+    });
+
+    // Mark rows that ended up with a single painting so they centre it.
+    Array.prototype.forEach.call(container.querySelectorAll('.painting-row'), function (r) {
+      if (r.children.length === 1) r.classList.add('painting-row--single');
     });
   }
 

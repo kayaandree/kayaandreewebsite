@@ -30,14 +30,12 @@ const SITE_DATA = {
         file: 'What?.jpg',
         name: 'Small',
         medium: 'Mixed Media on Paper, 2022',
-        alignEnd: true,
       },
       {
         file: 'ahah.jpg',
         name: 'ahah',
         medium: 'Color pencil on paper, 2023',
         cropTop: true,
-        alignEnd: true,
       },
       {
         file: 'Lily Lady.JPG',
@@ -73,9 +71,6 @@ const SITE_DATA = {
         file: 'You Are The River Btw.jpg',
         name: 'You Are The River Btw',
         medium: 'Oil on a piece of cardboard, 2024',
-        // Narrowed so its height matches Do You Really? beside it (1920x2459 vs
-        // this 1920x2741: 2459 / 2741 = 0.897). Aspect ratio unchanged.
-        imgScale: 0.897,
         desc: 'Do not blame the river because you have stumbled and fallen into it.'
       },
       {
@@ -89,9 +84,6 @@ const SITE_DATA = {
         name: 'Madiana',
         medium: 'Mixed media on paper, 2023',
         wideText: true,
-        // Narrowed so its height matches Tout Pour Toi beside it (1738x2395 vs
-        // this 3583x5252: 1.3780 / 1.4658 = 0.940). Aspect ratio unchanged.
-        imgScale: 0.940,
         desc: "Pour cette œuvre, j’ai dû prendre des centaines de photos de la Martinique, les découper et les recoller afin de représenter une mulâtresse, une femme typique de la Martinique. J’ai été inspirée par la poterie de Sylvain Fillon. Beaucoup des poteries qu’il crée rendent hommage à la Martinique et à la culture martiniquaise.\n\nElle porte un foulard en tissu madras, qui a été introduit en Martinique lorsque les colons ont ramené des Indiens pour faire le travail que les esclaves nouvellement libérés ne voulaient plus faire. À ses oreilles, elle porte des boucles d’oreilles créoles, que toutes les filles rêvent de porter quand elles seront plus grandes.\n\nOn oublie souvent notre histoire et on n’apprécie pas assez notre culture à cause de cela. Petite, on se moquait de moi parce que j’étais martiniquaise, en disant qu’on n’était pas des gens civilisés, qu’on venait d’un pays pauvre ou qu’on avait un accent drôle. Aujourd’hui, je ne pourrais pas être plus fière de mon pays."
       },
       {
@@ -103,9 +95,6 @@ const SITE_DATA = {
         file: 'Simple Stupid Swirly Love.JPG',
         name: 'Stupid Swirly Love',
         medium: 'Acrylic on paper, 2023',
-        // Narrowed so its height matches Lol beside it (Lol is 1178x1500,
-        // this is 2726x3822: 1.2733 / 1.4021 = 0.908). Aspect ratio unchanged.
-        imgScale: 0.908,
         desc: 'Blah blah blah big feelings blah blah blah who cares?'
       },
       {
