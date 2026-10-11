@@ -338,6 +338,6 @@ const SITE_DATA = {
 
   info: {
     folder: 'info',
-    images: ['FullSizeRender copie.jpg']
+    images: ['portrait-blur.jpg']
   }
 };
