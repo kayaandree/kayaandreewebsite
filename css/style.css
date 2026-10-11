@@ -302,6 +302,13 @@ body.is-loaded:not(.is-leaving) .page-veil {
   transform: scale(1.053);
 }
 
+/* Hide the iOS play button that appears when autoplay is blocked. */
+.hero-video-el::-webkit-media-controls,
+.hero-video-el::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .hero-video::after {
   content: '';
   position: absolute;

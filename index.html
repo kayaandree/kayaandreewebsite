@@ -26,7 +26,7 @@
 </header>
 
 <section class="hero-video">
-  <video class="hero-video-el" src="home%20page/Homepagebackground.mov" autoplay muted loop playsinline></video>
+  <video class="hero-video-el" src="home%20page/Homepagebackground.mp4" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video>
 </section>
 
 <footer class="site-footer">
@@ -49,5 +49,29 @@
 
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
+<script>
+  // Phones can refuse autoplay (e.g. iOS Low Power Mode) and show a play
+  // button instead. Keep retrying quietly, and start on the first touch.
+  (function () {
+    var heroVideo = document.querySelector('.hero-video-el');
+    if (!heroVideo) return;
+    heroVideo.muted = true;
+
+    function tryPlay() {
+      if (!heroVideo.paused) return;
+      var p = heroVideo.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+
+    tryPlay();
+    heroVideo.addEventListener('loadeddata', tryPlay);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) tryPlay();
+    });
+    ['touchstart', 'click', 'scroll'].forEach(function (evt) {
+      window.addEventListener(evt, tryPlay, { passive: true });
+    });
+  })();
+</script>
 </body>
 </html>

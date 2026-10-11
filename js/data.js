@@ -7,7 +7,7 @@
 const SITE_DATA = {
   home: {
     folder: 'home page',
-    video: 'Homepagebackground.mov'
+    video: 'Homepagebackground.mp4'
   },
 
   // Artist statement lifted from the top of "Painting descriptions.pdf"
