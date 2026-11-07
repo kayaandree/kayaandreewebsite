@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TCA Outreach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sea-900: #0f2e2c;
+  --sea-800: #173f3c;
+  --sea-700: #1f524e;
+  --aqua-300: #8fcabd;
+  --amber-400: #d4a04a;
+  --amber-500: #c08a2e;
+  --amber-ink: #241803;
+
+  --ink: #0f2624;
+  --ink-2: #24403c;
+  --ink-3: #36524e;
+  --on-sea: #eaf3f0;
+  --on-sea-2: #b9d2cc;
+
+  --frost: rgba(240, 247, 244, 0.8);
+  --frost-strong: rgba(246, 251, 249, 0.82);
+  --frost-edge: rgba(255, 255, 255, 0.55);
+  --frost-line: rgba(15, 38, 36, 0.10);
+  --shadow: 0 22px 44px -24px rgba(6, 28, 26, 0.55), 0 2px 6px -2px rgba(6, 28, 26, 0.18);
+
+  --yes: #2f7d66;
+  --no: #a65446;
+  --later: #b57f22;
+  --quiet: #8ea6a0;
+  --no-ink: #7e362b;
+  --later-ink: #5c3d0b;
+
+  --r-lg: 22px;
+  --r-md: 14px;
+  --r-sm: 10px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100dvh;
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background-color: var(--sea-800);
+  background-image:
+    radial-gradient(60vw 50vh at 12% 8%, rgba(143, 202, 189, 0.55), transparent 70%),
+    radial-gradient(48vw 46vh at 88% 22%, rgba(212, 160, 74, 0.38), transparent 70%),
+    radial-gradient(70vw 60vh at 60% 100%, rgba(31, 82, 78, 0.95), transparent 70%),
+    linear-gradient(160deg, #1c4a46 0%, var(--sea-900) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(212, 160, 74, 0.45); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--amber-400); outline-offset: 2px; border-radius: 8px; }
+.num { font-family: "Geist Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+
+.glass {
+  background: var(--frost);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid var(--frost-edge);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), var(--shadow);
+  border-radius: var(--r-lg);
+}
+
+/* ---------- top bar ---------- */
+.bar {
+  max-width: 1360px; margin: 0 auto; padding: 20px 28px 0;
+  display: flex; align-items: center; gap: 28px;
+  color: var(--on-sea);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
+.brand-mark { width: 26px; height: 26px; }
+.brand small { font-weight: 400; color: var(--on-sea-2); }
+.tabs { display: flex; gap: 4px; margin-left: 8px; }
+.tab {
+  appearance: none; border: 0; background: transparent; color: var(--on-sea-2);
+  font: inherit; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  transition: background 200ms var(--ease), color 200ms var(--ease);
+}
+.tab:hover { color: var(--on-sea); background: rgba(255, 255, 255, 0.08); }
+.tab[aria-selected="true"] { color: var(--ink); background: var(--frost-strong); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8); }
+.bar-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.sample { font-size: 12px; color: var(--on-sea-2); border: 1px dashed rgba(234, 243, 240, 0.4); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.switch { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--on-sea); cursor: pointer; white-space: nowrap; }
+.switch input { position: absolute; opacity: 0; pointer-events: none; }
+.track { width: 40px; height: 22px; border-radius: 999px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); position: relative; transition: background 200ms var(--ease); }
+.track::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--on-sea); transition: transform 220ms var(--ease); }
+.switch input:checked + .track { background: var(--yes); border-color: rgba(255,255,255,0.5); }
+.switch input:checked + .track::after { transform: translateX(18px); }
+.switch input:focus-visible + .track { outline: 2px solid var(--amber-400); outline-offset: 2px; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 600; color: var(--ink); background: linear-gradient(140deg, #f3e6c8, var(--aqua-300)); border: 1px solid rgba(255,255,255,0.6); }
+
+/* ---------- layout ---------- */
+main { max-width: 1360px; margin: 0 auto; padding: 22px 28px 40px; }
+.greet { color: var(--on-sea); margin: 6px 0 18px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.greet h1 { font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0; }
+.greet p { margin: 0; color: var(--on-sea-2); }
+.view { display: none; }
+.view.active { display: block; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(320px, 1fr); gap: 20px; align-items: start; }
+.stack { display: grid; gap: 20px; }
+.panel { padding: 24px 26px; }
+.panel h2 { font-size: 15px; font-weight: 600; margin: 0; letter-spacing: -0.005em; }
+.panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.muted { color: var(--ink-3); font-size: 13px; }
+.panel-head .muted { white-space: nowrap; }
+
+/* ---------- seats ---------- */
+.seats-line { display: flex; align-items: baseline; gap: 12px; margin: 2px 0 16px; flex-wrap: wrap; }
+.seats-big { font-family: "Geist", system-ui, sans-serif; font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+.seats-big span { color: var(--ink-3); font-weight: 500; }
+.seats-line p { margin: 0; color: var(--ink-2); max-width: 46ch; }
+.meter { position: relative; height: 18px; border-radius: 999px; background: rgba(15, 38, 36, 0.08); box-shadow: inset 0 1px 2px rgba(15,38,36,0.12); }
+.meter-band { position: absolute; top: -6px; bottom: -6px; border-radius: 8px; background: rgba(212, 160, 74, 0.16); border: 1px dashed rgba(192, 138, 46, 0.7); }
+.meter-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: linear-gradient(90deg, #276c58, var(--yes)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.35); }
+.meter-soft { position: absolute; top: 0; bottom: 0; border-radius: 0 999px 999px 0; background: repeating-linear-gradient(135deg, rgba(47,125,102,0.35) 0 6px, rgba(47,125,102,0.15) 6px 12px); }
+.meter-scale { position: relative; height: 22px; margin-top: 8px; font-size: 12px; color: var(--ink-3); }
+.meter-scale span { position: absolute; transform: translateX(-50%); }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 6px; font-size: 13px; color: var(--ink-2); }
+.key { display: inline-flex; align-items: center; gap: 8px; }
+.sw { width: 12px; height: 12px; border-radius: 4px; }
+
+/* ---------- glass pipeline (signature) ---------- */
+.flow-wrap { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--frost-line); }
+.funnel-wrap { position: relative; overflow: hidden; border-radius: var(--r-md); }
+.funnel { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; transition: filter 300ms var(--ease), opacity 300ms var(--ease); }
+.row { display: grid; grid-template-columns: 170px minmax(0, 1fr) 40px 150px; grid-template-areas: "label bar n who"; gap: 12px; align-items: center; }
+.row-label { grid-area: label; font-size: 14px; font-weight: 500; }
+.row-bar { grid-area: bar; height: 16px; border-radius: 999px; background: rgba(255,255,255,0.4); box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), inset 0 0 0 1px rgba(15,38,36,0.08); overflow: hidden; }
+.row-bar i { display: block; height: 100%; width: var(--w); border-radius: 999px; background: linear-gradient(90deg, #276c58, var(--yes)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4); }
+.row-n { grid-area: n; font-size: 20px; font-weight: 500; text-align: right; }
+.row-who { grid-area: who; font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.row-who.gate { color: var(--later-ink); font-weight: 500; }
+.row-who.gate svg { color: var(--amber-500); }
+.funnel-head { display: grid; grid-template-columns: 170px minmax(0, 1fr) 40px 150px; gap: 12px; font-size: 11.5px; color: var(--ink-3); margin-bottom: 6px; }
+.funnel-head span:nth-child(3) { text-align: right; }
+.sweep { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.55) 45%, transparent 60%); transform: translateX(-100%); }
+.funnel-wrap.lit .sweep { animation: sweep 1400ms var(--ease) 300ms 1 both; }
+@keyframes sweep { to { transform: translateX(100%); } }
+.paused .funnel { filter: saturate(0.2) blur(0.4px); opacity: 0.55; }
+.paused-note { display: none; margin-top: 12px; font-size: 13px; color: var(--no-ink); font-weight: 500; }
+.paused .paused-note { display: block; }
+.outreach { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--frost-line); font-size: 13.5px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.outreach span { white-space: nowrap; }
+.outreach b { font-family: "Geist Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 16px; font-weight: 500; color: var(--ink); margin-right: 4px; }
+.outreach .yes b { color: #1f5b49; }
+.outreach .no b { color: var(--no-ink); }
+
+/* ---------- queue ---------- */
+.count-pill { font-size: 12px; font-weight: 600; color: var(--amber-ink); background: var(--amber-400); padding: 3px 10px; border-radius: 999px; }
+.queue { list-style: none; margin: 0; padding: 0; display: grid; }
+.item { padding: 14px 0 14px; border-top: 1px solid var(--frost-line); transition: opacity 250ms var(--ease), transform 250ms var(--ease); }
+.item.gone { opacity: 0; transform: translateY(-6px); }
+.draft label { display: grid; gap: 6px; font-size: 12px; color: var(--ink-3); margin: 0 0 10px; }
+.draft textarea { font: inherit; font-size: 13.5px; color: var(--ink); padding: 10px 12px; border-radius: var(--r-sm); border: 1px solid rgba(15,38,36,0.18); background: rgba(255,255,255,0.8); resize: vertical; }
+.item p { margin: 0 0 4px; font-size: 14px; }
+.item .why { font-size: 12.5px; color: var(--ink-3); margin-bottom: 10px; }
+.actions { display: flex; gap: 6px; }
+.btn {
+  appearance: none; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+  padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(15, 38, 36, 0.16);
+  background: rgba(255,255,255,0.6); color: var(--ink);
+  transition: background 180ms var(--ease), transform 120ms var(--ease), border-color 180ms var(--ease);
+}
+.btn:hover { background: rgba(255,255,255,0.9); }
+.btn:active { transform: translateY(1px) scale(0.98); }
+.btn.primary { background: var(--amber-400); border-color: rgba(120, 80, 10, 0.25); color: var(--amber-ink); }
+.btn.primary:hover { background: #ddb062; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.empty { padding: 18px 4px 6px; color: var(--ink-3); font-size: 13.5px; display: none; }
+.empty strong { color: var(--ink); font-weight: 600; display: block; margin-bottom: 2px; }
+
+/* ---------- chat ---------- */
+.chat-form { display: flex; gap: 8px; margin-top: 4px; }
+.chat-form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.chat-input {
+  flex: 1; min-width: 0; font: inherit; font-size: 14px; color: var(--ink);
+  padding: 11px 14px; border-radius: 999px; border: 1px solid rgba(15,38,36,0.16); background: rgba(255,255,255,0.7);
+}
+.chat-input::placeholder { color: var(--ink-3); }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.chip { font: inherit; font-size: 12.5px; cursor: pointer; padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(15,38,36,0.14); background: rgba(255,255,255,0.45); color: var(--ink-2); }
+.chip:hover { background: rgba(255,255,255,0.8); color: var(--ink); }
+.log { display: grid; gap: 10px; margin-top: 14px; max-height: 260px; overflow: auto; }
+.msg { padding: 10px 13px; border-radius: 14px; font-size: 13.5px; max-width: 92%; }
+.msg.you { justify-self: end; background: rgba(15, 46, 44, 0.86); color: var(--on-sea); border-bottom-right-radius: 4px; }
+.msg.bot { background: rgba(255,255,255,0.72); border: 1px solid rgba(255,255,255,0.8); border-bottom-left-radius: 4px; }
+.msg.bot .src { display: block; margin-top: 6px; font-size: 11.5px; color: var(--ink-3); }
+.typing { color: var(--ink-3); font-style: normal; }
+
+/* ---------- secondary views ---------- */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.bars { display: grid; gap: 12px; }
+.bar-row { display: grid; grid-template-columns: 130px 1fr 44px; gap: 12px; align-items: center; font-size: 13.5px; }
+.bar-track { height: 10px; border-radius: 999px; background: rgba(15,38,36,0.08); overflow: hidden; }
+.bar-track i { display: block; height: 100%; border-radius: 999px; }
+.note { margin-top: 16px; font-size: 13px; color: var(--ink-2); padding-top: 14px; border-top: 1px solid var(--frost-line); max-width: 70ch; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-weight: 500; color: var(--ink-3); font-size: 12px; padding: 0 10px 8px 0; border-bottom: 1px solid var(--frost-line); }
+td { padding: 11px 10px 11px 0; border-bottom: 1px solid var(--frost-line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+.tag { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 2px 8px; border-radius: 999px; }
+.tag.later { background: rgba(181,127,34,0.16); color: var(--later-ink); }
+.tag.yes { background: rgba(47,125,102,0.16); color: #1f5b49; }
+.tag.no { background: rgba(166,84,70,0.15); color: var(--no-ink); }
+.levels { display: grid; }
+.agent { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 1.3fr) auto; gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid var(--frost-line); }
+.agent:first-child, .item:first-child { border-top: 0; padding-top: 4px; }
+.agent h3 { margin: 0; font-size: 14px; font-weight: 600; }
+.agent .muted { font-size: 12.5px; }
+.dots { display: flex; gap: 5px; align-items: center; }
+.dots i { width: 22px; height: 8px; border-radius: 4px; background: rgba(15,38,36,0.12); }
+.dots i.on { background: var(--yes); }
+.dots i.gate-on { background: var(--amber-400); }
+.lvl-name { font-size: 12.5px; color: var(--ink-2); margin-top: 6px; }
+.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 20px; }
+.strip > div { padding: 16px 18px; border-left: 1px solid var(--frost-line); }
+.strip > div:first-child { border-left: 0; }
+.strip b { display: block; font-size: 20px; font-weight: 500; margin-bottom: 2px; }
+.strip span { font-size: 12.5px; color: var(--ink-2); }
+
+.foot { color: var(--on-sea-2); font-size: 12px; margin-top: 22px; }
+
+@media (max-width: 1080px) {
+  .grid, .two { grid-template-columns: 1fr; }
+  .agent { grid-template-columns: 1fr 1fr; }
+  .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip > div:nth-child(3) { border-left: 0; }
+}
+@media (max-width: 760px) {
+  .bar { flex-wrap: wrap; padding: 16px 16px 0; gap: 12px; }
+  .tabs { order: 3; width: 100%; margin: 0; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { padding: 8px 7px; }
+  .bar-right { gap: 10px; }
+  .sample { font-size: 11px; padding: 3px 8px; }
+  main { padding: 16px 16px 32px; }
+  .panel { padding: 20px 18px; }
+  .row { grid-template-columns: minmax(0, 1fr) 36px; grid-template-areas: "label n" "bar bar" "who who"; gap: 4px 10px; }
+  .funnel { gap: 14px; }
+  .funnel-head { display: none; }
+  .agent { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 96px 1fr 36px; }
+  .strip { grid-template-columns: 1fr; }
+  .strip > div { border-left: 0; border-top: 1px solid var(--frost-line); }
+  .strip > div:first-child { border-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="1" width="24" height="24" rx="8" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.6)"/><path d="M7 9h12M13 9v10" stroke="#eaf3f0" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="2.2" fill="#d4a04a"/></svg>
+    TCA Outreach <small>· 1 Dec intake</small>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Dashboard sections">
+    <button class="tab" role="tab" aria-selected="true" data-view="overview" aria-controls="view-overview">Overview</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="replies" aria-controls="view-replies">Replies</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="autonomy" aria-controls="view-autonomy">Autonomy</button>
+    <button class="tab" role="tab" aria-selected="false" data-view="compliance" aria-controls="view-compliance">Compliance</button>
+  </nav>
+  <div class="bar-right">
+    <span class="sample">Sample data</span>
+    <label class="switch" title="Pause stops every agent that acts on its own. Drafts still wait for you.">
+      <input type="checkbox" id="autoSwitch" checked>
+      <span class="track" aria-hidden="true"></span>
+      <span id="autoLabel">Agents running</span>
+    </label>
+    <div class="avatar" aria-label="Anna Zelno">AZ</div>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- OVERVIEW -->
+  <section class="view active" id="view-overview" role="tabpanel" aria-label="Overview">
+    <div class="greet">
+      <h1>Good morning, Anna</h1>
+      <p>Monday 9 Nov · masterclass tomorrow, 18:30 · 3 things need you</p>
+    </div>
+    <div class="grid">
+      <div class="stack">
+      <article class="glass panel">
+        <div class="panel-head">
+          <h2>Seats for the 1 Dec cohort</h2>
+          <span class="muted">Target 4–6 · stretch 8</span>
+        </div>
+        <div class="seats-line">
+          <div class="seats-big num">3<span>/6</span></div>
+          <p>3 enrolled and 2 applications in review. One more seat reaches the honest target.</p>
+        </div>
+        <div class="meter" role="img" aria-label="3 seats enrolled, 2 applications in review, target band 4 to 6 on a scale of 8">
+          <div class="meter-band" style="left:50%; width:25%"></div>
+          <div class="meter-soft" style="left:37.5%; width:25%"></div>
+          <div class="meter-fill" style="width:37.5%"></div>
+        </div>
+        <div class="meter-scale num" aria-hidden="true">
+          <span style="left:0%; transform:none">0</span>
+          <span style="left:50%">4</span>
+          <span style="left:75%">6</span>
+          <span style="left:100%; transform:translateX(-100%)">8</span>
+        </div>
+        <div class="legend">
+          <span class="key"><i class="sw" style="background:var(--yes)"></i>Enrolled</span>
+          <span class="key"><i class="sw" style="background:repeating-linear-gradient(135deg, rgba(47,125,102,0.45) 0 3px, rgba(47,125,102,0.15) 3px 6px)"></i>Applied, not enrolled yet</span>
+          <span class="key"><i class="sw" style="background:rgba(212,160,74,0.25); border:1px dashed var(--amber-500)"></i>Target band</span>
+        </div>
+
+        <div class="flow-wrap">
+          <div class="panel-head">
+            <h2>From contact to enrolment</h2>
+            <span class="muted">Since 26 Oct</span>
+          </div>
+          <div class="funnel-head" aria-hidden="true"><span>Step</span><span>Against contacted</span><span>People</span><span>Who acts</span></div>
+          <div class="funnel-wrap" id="flow">
+            <ol class="funnel">
+              <li class="row"><span class="row-label">Contacted</span><span class="row-bar"><i style="--w:100%"></i></span><span class="row-n num">36</span><span class="row-who gate"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5.5V4a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="5.5" width="8" height="5.5" rx="1.5" fill="currentColor"/></svg>You approve each</span></li>
+              <li class="row"><span class="row-label">Qualified conversations</span><span class="row-bar"><i style="--w:25%"></i></span><span class="row-n num">9</span><span class="row-who gate"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5.5V4a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="5.5" width="8" height="5.5" rx="1.5" fill="currentColor"/></svg>You hold the call</span></li>
+              <li class="row"><span class="row-label">Self-assessments</span><span class="row-bar"><i style="--w:19.4%"></i></span><span class="row-n num">7</span><span class="row-who">They take it</span></li>
+              <li class="row"><span class="row-label">Applications</span><span class="row-bar"><i style="--w:13.9%"></i></span><span class="row-n num">5</span><span class="row-who">They apply</span></li>
+              <li class="row"><span class="row-label">Enrolled</span><span class="row-bar"><i style="--w:8.3%"></i></span><span class="row-n num">3</span><span class="row-who gate"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5.5V4a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="5.5" width="8" height="5.5" rx="1.5" fill="currentColor"/></svg>You confirm the seat</span></li>
+            </ol>
+            <div class="sweep" aria-hidden="true"></div>
+          </div>
+          <p class="outreach">
+            <span>Of the 36 contacted:</span>
+            <span><b>35</b>received</span>
+            <span class="yes"><b>9</b>said yes</span>
+            <span class="no"><b>7</b>said no</span>
+            <span><b>3</b>not now</span>
+            <span><b>16</b>no reply yet</span>
+            <span><b>14</b>follow-ups sent</span>
+          </p>
+          <p class="paused-note">Paused. No agent acts on its own until you switch them back on. Your queue still works.</p>
+        </div>
+      </article>
+      </div>
+
+      <div class="stack">
+        <article class="glass panel" aria-labelledby="qTitle">
+          <div class="panel-head">
+            <h2 id="qTitle">Waiting on you</h2>
+            <span class="count-pill num" id="qCount" aria-live="polite">3</span>
+          </div>
+          <ul class="queue" id="queue">
+            <li class="item">
+              <p>Invitation to Laia Puigdomènech, Head of People at Brisa Logistics (140 staff)</p>
+              <div class="why">Judge passed 4 of 4 checks · hires from 20+ countries · same role posted 3 times this year · privacy line included</div>
+              <div class="draft" hidden><label>Draft<textarea rows="5">Hi Laia, I saw Brisa is building its People function this year. On Tue 10 Nov we run a 90-minute online masterclass on developing people across cultures, for People leads in their first year. Would it be useful? If not, just say so and we won't write again. We found your role on Brisa's careers page.</textarea></label></div>
+              <div class="actions"><button class="btn primary" data-act="accept">Accept</button><button class="btn" data-act="review">Review</button><button class="btn" data-act="reject">Reject</button></div>
+            </li>
+            <li class="item">
+              <p>Follow-up to Oriol Vidal-Casas, Tramuntana Pay, who said no</p>
+              <div class="why">Jev is 94% sure it's a no · draft: thanks, and one optional question, "what made it not a fit?"</div>
+              <div class="draft" hidden><label>Draft<textarea rows="4">Thanks for letting us know, Oriol. One optional question, only if you have ten seconds: what made it not a fit? Either way, we won't write again.</textarea></label></div>
+              <div class="actions"><button class="btn primary" data-act="accept">Accept</button><button class="btn" data-act="review">Review</button><button class="btn" data-act="reject">Reject</button></div>
+            </li>
+            <li class="item">
+              <p>Unclear reply from Noor Haddad, Cobalt Harbour</p>
+              <div class="why">"Sounds interesting, but could this wait until January?" · Jev is unsure (52% yes) · suggested: not now, January intake</div>
+              <div class="draft" hidden><label>Draft<textarea rows="3">Of course, Noor. We'll write in early January with the next intake dates.</textarea></label></div>
+              <div class="actions"><button class="btn primary" data-act="accept">Accept</button><button class="btn" data-act="review">Review</button><button class="btn" data-act="reject">Reject</button></div>
+            </li>
+          </ul>
+          <div class="empty" id="qEmpty"><strong>All clear.</strong>New drafts and unclear replies will land here. Nothing is sent without you.</div>
+        </article>
+
+        <article class="glass panel" aria-labelledby="cTitle">
+          <div class="panel-head"><h2 id="cTitle">Ask the pipeline</h2><span class="muted">Reads this campaign only</span></div>
+          <form class="chat-form" id="chatForm">
+            <label for="chatInput">Question for the pipeline agent</label>
+            <input class="chat-input" id="chatInput" autocomplete="off" placeholder="Who said no this week, and why?">
+            <button class="btn primary" type="submit">Ask</button>
+          </form>
+          <div class="chips" id="chips">
+            <button class="chip" type="button">Who said no, and why?</button>
+            <button class="chip" type="button">Who hasn't replied?</button>
+            <button class="chip" type="button">Which signal works best?</button>
+          </div>
+          <div class="log" id="log" aria-live="polite"></div>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REPLIES -->
+  <section class="view" id="view-replies" role="tabpanel" aria-label="Replies">
+    <div class="greet"><h1>Replies</h1><p>19 of 35 received · sorted by Jev, unclear ones go to you</p></div>
+    <div class="two">
+      <article class="glass panel">
+        <div class="panel-head"><h2>Why people said no</h2><span class="muted">7 said no · 5 gave a reason</span></div>
+        <div class="bars">
+          <div class="bar-row"><span>Timing</span><div class="bar-track"><i style="width:60%; background:var(--later)"></i></div><span class="num">3</span></div>
+          <div class="bar-row"><span>Budget</span><div class="bar-track"><i style="width:20%; background:var(--no)"></i></div><span class="num">1</span></div>
+          <div class="bar-row"><span>Language</span><div class="bar-track"><i style="width:20%; background:var(--no)"></i></div><span class="num">1</span></div>
+          <div class="bar-row"><span>No reason</span><div class="bar-track"><i style="width:40%; background:var(--quiet)"></i></div><span class="num">2</span></div>
+        </div>
+        <p class="note">Timing leads, as the barrier research predicted. The 3 timing answers are tagged Later instead of do-not-contact.</p>
+      </article>
+      <article class="glass panel">
+        <div class="panel-head"><h2>Later list</h2><span class="muted">6 people for the January intake</span></div>
+        <table>
+          <thead><tr><th>Person</th><th>What they said</th><th>Tag</th></tr></thead>
+          <tbody>
+            <tr><td>Marta Ibáñez<br><span class="muted">Nautilo Health</span></td><td>"Not before the new year, budget resets in January."</td><td><span class="tag later">Jan intake</span></td></tr>
+            <tr><td>Jonas Lindqvist<br><span class="muted">Ferro &amp; Sal Studios</span></td><td>"Two months into the job, too soon."</td><td><span class="tag later">Jan intake</span></td></tr>
+            <tr><td>Elena Sorribes<br><span class="muted">Llum Analytics</span></td><td>"Ask me again after Q4 closes."</td><td><span class="tag later">Jan intake</span></td></tr>
+          </tbody>
+        </table>
+        <p class="note">Showing 3 of 6. Nobody here is contacted again without your approval.</p>
+      </article>
+      <article class="glass panel" style="grid-column: 1 / -1">
+        <div class="panel-head"><h2>What works</h2><span class="muted">Reply rate by the signal the agent found</span></div>
+        <div class="bars">
+          <div class="bar-row"><span>Speaker at an event</span><div class="bar-track"><i style="width:67%; background:var(--yes)"></i></div><span class="num">4/6</span></div>
+          <div class="bar-row"><span>Warm intro</span><div class="bar-track"><i style="width:66.7%; background:var(--yes)"></i></div><span class="num">2/3</span></div>
+          <div class="bar-row"><span>New in role</span><div class="bar-track"><i style="width:58%; background:var(--yes)"></i></div><span class="num">7/12</span></div>
+          <div class="bar-row"><span>Funding round</span><div class="bar-track"><i style="width:40%; background:var(--yes)"></i></div><span class="num">6/15</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- AUTONOMY -->
+  <section class="view" id="view-autonomy" role="tabpanel" aria-label="Autonomy">
+    <div class="greet"><h1>Autonomy</h1><p>Each agent earns its level from its record. You can move any agent down at any time.</p></div>
+    <article class="glass panel">
+      <div class="panel-head"><h2>Agents</h2><span class="muted">Level 0: you do it · 1: you approve each · 2: you approve samples · 3: acts alone, you watch</span></div>
+      <div class="levels" id="levels"></div>
+    </article>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="view" id="view-compliance" role="tabpanel" aria-label="Compliance">
+    <div class="greet"><h1>Compliance</h1><p>What the law and our own rules require, checked on every message</p></div>
+    <article class="glass panel">
+      <div class="panel-head"><h2>This campaign</h2><span class="muted">GDPR art. 14 and 21 · LSSI art. 21</span></div>
+      <div class="strip">
+        <div><b class="num">36 / 36</b><span>messages say where we found them and how to opt out</span></div>
+        <div><b class="num">2 / 2</b><span>opt-out requests honoured within a day</span></div>
+        <div><b class="num">4</b><span>people marked do-not-contact</span></div>
+        <div><b class="num">5 May 2027</b><span>next deletion of candidate data (6 months)</span></div>
+      </div>
+      <p class="note">Sources the research agent reads: company pages, job ads, funding news and public event lists. No LinkedIn scraping. Sending stays at level 1: nothing leaves without your approval.</p>
+    </article>
+  </section>
+
+  <p class="foot">Sample data for the Innovation Day prototype. Names and companies are invented.</p>
+</main>
+
+<script>
+(() => {
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.setAttribute('aria-selected', String(x === t)));
+    document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + t.dataset.view));
+  }));
+
+  // Light sweep once on load
+  requestAnimationFrame(() => document.getElementById('flow').classList.add('lit'));
+
+  // Pause-all
+  const sw = document.getElementById('autoSwitch');
+  const swLabel = document.getElementById('autoLabel');
+  sw.addEventListener('change', () => {
+    document.getElementById('app').classList.toggle('paused', !sw.checked);
+    swLabel.textContent = sw.checked ? 'Agents running' : 'Agents paused';
+  });
+
+  // Queue
+  const queue = document.getElementById('queue');
+  const count = document.getElementById('qCount');
+  queue.addEventListener('click', e => {
+    const b = e.target.closest('button[data-act]');
+    if (!b) return;
+    const item = b.closest('.item');
+    if (b.dataset.act === 'review') {
+      const d = item.querySelector('.draft');
+      d.hidden = !d.hidden;
+      b.textContent = d.hidden ? 'Review' : 'Close';
+      if (!d.hidden) d.querySelector('textarea').focus();
+      return;
+    }
+    item.querySelectorAll('button').forEach(x => x.disabled = true);
+    item.classList.add('gone');
+    setTimeout(() => {
+      item.remove();
+      const left = queue.children.length;
+      count.textContent = left;
+      document.querySelector('.greet p').textContent = 'Monday 9 Nov · masterclass tomorrow, 18:30 · ' + (left ? left + (left === 1 ? ' thing needs you' : ' things need you') : 'nothing needs you');
+      if (!left) document.getElementById('qEmpty').style.display = 'block';
+    }, 260);
+  });
+
+  // Chat (scripted answers for the demo)
+  const answers = [
+    [/no\b|why/i, '7 people said no. 5 gave a reason: 3 timing ("not before January"), 1 budget, 1 language. The 3 timing answers are tagged Later for the January intake; 4 are do-not-contact.', 'From 7 replies sorted by Jev'],
+    [/repl|haven|silent/i, '16 people have not replied. 7 got their one reminder; 9 are still inside the 5-day wait. The longest wait is Pau Ferrer at Ona Retail, 9 days.', 'From the send log'],
+    [/signal|work|best/i, 'Event speakers reply most (4 of 6), then new-in-role signals from job ads (7 of 12). Funding news is weakest (6 of 15).', 'From 36 contacted, by first signal'],
+  ];
+  const log = document.getElementById('log');
+  const input = document.getElementById('chatInput');
+  function add(cls, html) { const d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
+  function esc(s) { return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+  function ask(q) {
+    if (!q.trim()) { input.focus(); return; }
+    add('you', esc(q));
+    const t = add('bot', '<span class="typing">Reading the pipeline…</span>');
+    const hit = answers.find(([re]) => re.test(q));
+    setTimeout(() => {
+      t.innerHTML = hit ? esc(hit[1]) + '<span class="src">' + esc(hit[2]) + '</span>'
+                        : 'In the prototype I can answer about replies, people waiting and signals. Try one of the questions above.';
+    }, 700);
+  }
+  document.getElementById('chatForm').addEventListener('submit', e => { e.preventDefault(); ask(input.value); input.value = ''; });
+  document.getElementById('chips').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) ask(c.textContent); });
+
+  // Autonomy rows
+  const agents = [
+    ['Research', 'Finds candidates on public pages', 3, 'Found 61 candidates · 0 flagged sources', 'Acts alone, you watch'],
+    ['Analyst', 'Scores who is worth the time', 2, 'Picked 38 of 61 as worth the time · you kept 35 of 38', 'You approve samples'],
+    ['Writer', 'Drafts invitations', 1, '33 of 36 approved without edits', 'You approve each'],
+    ['Judge', 'Checks every draft before you see it', 3, 'Caught 4 drafts missing the privacy line', 'Acts alone, you watch'],
+    ['Reply sorter (Jev)', 'Sorts replies: yes, no, not now', 2, 'Clear answers filed alone; unclear ones (p 0.3 to 0.7) to you', 'You approve samples'],
+    ['Sender', 'Sends approved messages', 1, 'Locked at 1 for first contact', 'You approve each'],
+  ];
+  const wrap = document.getElementById('levels');
+  const names = ['You do it', 'You approve each', 'You approve samples', 'Acts alone, you watch'];
+  agents.forEach(([name, job, start, record]) => {
+    let lvl = start;
+    const locked = name === 'Sender';
+    const row = document.createElement('div');
+    row.className = 'agent';
+    row.innerHTML =
+      '<div><h3>' + name + '</h3><div class="muted">' + job + '</div></div>' +
+      '<div><div class="dots"></div><div class="lvl-name" aria-live="polite"></div></div>' +
+      '<div class="muted">' + record + '</div>' +
+      '<div class="actions"><button class="btn" data-d="-1">Move down</button><button class="btn" data-d="1">Promote</button></div>';
+    const draw = () => {
+      row.querySelector('.dots').innerHTML = [0,1,2].map(i => '<i class="' + (i < lvl ? (lvl === 1 ? 'gate-on' : 'on') : '') + '"></i>').join('');
+      row.querySelector('.dots').setAttribute('aria-label', 'Level ' + lvl + ' of 3');
+      row.querySelector('.lvl-name').textContent = 'Level ' + lvl + ' · ' + names[lvl] + (locked && lvl >= 1 ? ' (locked for first contact)' : '');
+      row.querySelector('[data-d="-1"]').disabled = lvl === 0;
+      row.querySelector('[data-d="1"]').disabled = lvl === 3 || (locked && lvl >= 1);
+    };
+    row.querySelector('.actions').addEventListener('click', e => { const b = e.target.closest('button[data-d]'); if (b) { lvl += Number(b.dataset.d); draw(); } });
+    draw();
+    wrap.appendChild(row);
+  });
+})();
+</script>
+</body>
+</html>

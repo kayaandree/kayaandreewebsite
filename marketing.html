@@ -248,7 +248,8 @@
 
   /* Robin catalog slides are 2000x1414 (~A4 landscape), not 16:9 — match the
      frame to that ratio so object-fit: contain doesn't add letterboxing. */
-  #robin-catalog-deck .deck-frame {
+  #robin-catalog-deck .deck-frame,
+  #artisan-catalog-deck .deck-frame {
     aspect-ratio: 2000 / 1414;
   }
 
@@ -673,6 +674,44 @@
   <h2>The Artisan Gift Boxes</h2>
 </section>
 
+<section class="client-project-page" id="artisan-gift-boxes">
+  <p class="camp-hint">Click the deck to open it, then click through the slides.</p>
+
+  <div class="deck deck--solo" id="artisan-catalog-deck" tabindex="0" role="group" aria-label="The Artisan Gift Boxes Gift Guide 2026–2027, presentation slides — click to expand">
+    <div class="deck-frame">
+      <img class="deck-slide" id="artisan-catalog-deck-img" src="artisan-gift-boxes/catalog/slides/slide-01.jpg" alt="The Artisan Gift Boxes Gift Guide 2026–2027 — slide 1">
+    </div>
+    <div class="deck-dots" id="artisan-catalog-deck-dots"></div>
+    <span class="deck-caption">Gift Guide 2026–2027 — the catalog I made for The Artisan Gift Boxes</span>
+
+    <div class="deck-expanded overlay-backdrop" id="artisan-catalog-deck-expanded">
+      <button type="button" class="overlay-close" aria-label="Close presentation">&times;</button>
+      <div class="deck-expanded-inner">
+        <div class="deck-frame">
+          <img class="deck-slide" id="artisan-catalog-deck-expanded-img" src="artisan-gift-boxes/catalog/slides/slide-01.jpg" alt="The Artisan Gift Boxes Gift Guide 2026–2027 — slide 1">
+          <div class="deck-tap deck-tap-left" aria-label="Previous slide"></div>
+          <div class="deck-tap deck-tap-right" aria-label="Next slide"></div>
+        </div>
+        <div class="deck-dots" id="artisan-catalog-deck-expanded-dots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  initDeck({
+    deckId: "artisan-catalog-deck",
+    imgId: "artisan-catalog-deck-img",
+    dotsId: "artisan-catalog-deck-dots",
+    expandedId: "artisan-catalog-deck-expanded",
+    expandedImgId: "artisan-catalog-deck-expanded-img",
+    expandedDotsId: "artisan-catalog-deck-expanded-dots",
+    slideCount: 32,
+    folder: "artisan-gift-boxes/catalog/slides",
+    altBase: "The Artisan Gift Boxes Gift Guide 2026–2027",
+  });
+</script>
+
 <style>
   .camp-page {
     padding: 1rem var(--gutter) 4rem;
@@ -989,6 +1028,80 @@
   }
 
   renderMarketingSections("robin-collection/campaigns.json");
+</script>
+
+<section class="client-section" data-animate>
+  <span class="label">Hackathon</span>
+  <h2>UB Innovation Day 2026</h2>
+</section>
+
+<section class="client-project-page" id="innovation-day">
+  <p class="camp-hint">Click the deck to open it, then click through the slides.</p>
+
+  <div class="deck deck--solo" id="innovation-deck" tabindex="0" role="group" aria-label="UB Innovation Day 2026 prototype, presentation slides — click to expand">
+    <div class="deck-frame">
+      <img class="deck-slide" id="innovation-deck-img" src="innovation-day/slides/slide-01.jpg" alt="UB Innovation Day 2026 prototype — slide 1">
+    </div>
+    <div class="deck-dots" id="innovation-deck-dots"></div>
+    <span class="deck-caption">How it works, and the one page the director checks every Monday</span>
+
+    <div class="deck-expanded overlay-backdrop" id="innovation-deck-expanded">
+      <button type="button" class="overlay-close" aria-label="Close presentation">&times;</button>
+      <div class="deck-expanded-inner">
+        <div class="deck-frame">
+          <img class="deck-slide" id="innovation-deck-expanded-img" src="innovation-day/slides/slide-01.jpg" alt="UB Innovation Day 2026 prototype — slide 1">
+          <div class="deck-tap deck-tap-left" aria-label="Previous slide"></div>
+          <div class="deck-tap deck-tap-right" aria-label="Next slide"></div>
+        </div>
+        <div class="deck-dots" id="innovation-deck-expanded-dots"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="demo-link"><a href="innovation-day/demo.html" target="_blank" rel="noopener" class="cursor-target">Open the live demo →</a></p>
+
+  <div class="client-blurb">
+    <div class="case-study case-study--grid">
+      <div class="case-step">
+        <p class="case-step-label">The problem</p>
+        <p class="case-step-text">The Academy for Diversity and Innovation had less than a month to fill its Transcultural Consulting Accelerator, an 18-week, €3,900 programme starting 1 December. The people it needs, Heads of People at Barcelona scaleups, are few, busy and hard to reach.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">How we want to solve it</p>
+        <p class="case-step-text">AI finds the scaleups that hire the most talent from abroad, spots signs they may be losing people, like the same job posted again and again, and drafts a personal invitation to the Academy's masterclass. Nothing goes out until the director approves it.</p>
+      </div>
+    </div>
+    <p class="camp-hint">A hackathon prototype built with the team at UB Innovation Day 2026. All names and numbers in the demo are invented.</p>
+  </div>
+</section>
+
+<style>
+  .demo-link {
+    text-align: center;
+    margin: -1.5rem 0 3rem;
+  }
+
+  .demo-link a {
+    color: var(--accent);
+  }
+
+  #innovation-day .client-blurb .camp-hint {
+    margin-top: 2rem;
+  }
+</style>
+
+<script>
+  initDeck({
+    deckId: "innovation-deck",
+    imgId: "innovation-deck-img",
+    dotsId: "innovation-deck-dots",
+    expandedId: "innovation-deck-expanded",
+    expandedImgId: "innovation-deck-expanded-img",
+    expandedDotsId: "innovation-deck-expanded-dots",
+    slideCount: 2,
+    folder: "innovation-day/slides",
+    altBase: "UB Innovation Day 2026 prototype",
+  });
 </script>
 
 <footer class="site-footer">
