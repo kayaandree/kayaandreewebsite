@@ -26,6 +26,59 @@
 </header>
 
 <section class="client-section client-section--first" data-animate>
+  <span class="label">Startup</span>
+  <h2>Virdaya</h2>
+</section>
+
+<section class="client-project-page" id="virdaya">
+  <p class="camp-hint">Click the deck to open it, then click through the slides.</p>
+
+  <div class="deck deck--solo" id="virdaya-deck" tabindex="0" role="group" aria-label="Virdaya, Agricultural Intelligence for Everyone, presentation slides — click to expand">
+    <div class="deck-frame">
+      <img class="deck-slide" id="virdaya-deck-img" src="virdaya/slides/slide-01.jpg" alt="Virdaya, Agricultural Intelligence for Everyone — slide 1">
+    </div>
+    <div class="deck-dots" id="virdaya-deck-dots"></div>
+    <span class="deck-caption">Virdaya — Agricultural Intelligence for Everyone</span>
+
+    <div class="deck-expanded overlay-backdrop" id="virdaya-deck-expanded">
+      <button type="button" class="overlay-close" aria-label="Close presentation">&times;</button>
+      <div class="deck-expanded-inner">
+        <div class="deck-frame">
+          <img class="deck-slide" id="virdaya-deck-expanded-img" src="virdaya/slides/slide-01.jpg" alt="Virdaya, Agricultural Intelligence for Everyone — slide 1">
+          <div class="deck-tap deck-tap-left" aria-label="Previous slide"></div>
+          <div class="deck-tap deck-tap-right" aria-label="Next slide"></div>
+        </div>
+        <div class="deck-dots" id="virdaya-deck-expanded-dots"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="demo-link"><a href="https://virdaya.com" target="_blank" rel="noopener" class="cursor-target">Learn more at virdaya.com →</a></p>
+
+  <div class="client-blurb">
+    <p class="walkthrough-intro">Virdaya is an early-stage agricultural intelligence platform I co-founded with Giulio Robilliard. We develop localized, science-based decision support to help Vietnamese farmers make more informed, sustainable farming decisions. I work on research and product development.</p>
+    <div class="case-study case-study--grid">
+      <div class="case-step">
+        <p class="case-step-label">What we're building</p>
+        <p class="case-step-text">Early warnings for pests, disease and salinity, built from environmental data, field observations and agricultural research, plus locally adapted recommendations for crop protection, soil health and water management.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">How it reaches farmers</p>
+        <p class="case-step-text">Clear, practical advice in Vietnamese through Zalo and a mobile app, supported by trained field agents. Seed companies, cooperatives and exporters offer it to their farmer networks, so smallholders don't carry the cost.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">Where we're focusing</p>
+        <p class="case-step-text">Vegetables in the Mekong Delta, rice and saltwater intrusion in Sóc Trăng, and cadmium in durian orchards in Đồng Tháp. We also work with Women's Union chapters so women farmers get the same access to knowledge and tools.</p>
+      </div>
+      <div class="case-step">
+        <p class="case-step-label">Where we are now</p>
+        <p class="case-step-text">We've built the foundational platform with first demos for pest and disease, salinity and cadmium risk, and were selected for TBSeeds, TBS Education's incubator. Next: farmer pilots and research partnerships with Vietnamese universities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="client-section" data-animate>
   <span class="label">Client</span>
   <h2>Robin Collection</h2>
 </section>
@@ -1101,6 +1154,20 @@
     slideCount: 2,
     folder: "innovation-day/slides",
     altBase: "UB Innovation Day 2026 prototype",
+  });
+</script>
+
+<script>
+  initDeck({
+    deckId: "virdaya-deck",
+    imgId: "virdaya-deck-img",
+    dotsId: "virdaya-deck-dots",
+    expandedId: "virdaya-deck-expanded",
+    expandedImgId: "virdaya-deck-expanded-img",
+    expandedDotsId: "virdaya-deck-expanded-dots",
+    slideCount: 10,
+    folder: "virdaya/slides",
+    altBase: "Virdaya, Agricultural Intelligence for Everyone",
   });
 </script>
 
