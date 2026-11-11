@@ -30,12 +30,7 @@ const SITE_DATA = {
         file: 'What?.jpg',
         name: 'Small',
         medium: 'Mixed Media on Paper, 2022',
-      },
-      {
-        file: 'ahah.jpg',
-        name: 'ahah',
-        medium: 'Color pencil on paper, 2023',
-        cropTop: true,
+        solo: true,
       },
       {
         file: 'Lily Lady.JPG',
@@ -49,16 +44,6 @@ const SITE_DATA = {
         medium: 'Acrylic on canvas, 2025',
         wideText: true,
         desc: "I loveeee sprinkles. They are so colorful and fun to look at. They can make anything look better. If you mess up a cake or the cookies you made are a bit burnt, just add some sprinkles. It won’t help too much with the flavor or anything but at least it will look nice. Anyways, it’s not like I was going to marry the sprinkles or anything. They’re just for fun.\n\nIn case that was a bit too cryptic, modern women have been lobotomized by extreme expectations of beauty. Conscious of it or not, they will in some way or another base their worth at least partially on their appearance. Self objectification and sexualization prompts the same treatment from others. The more time a woman spends obsessing over her appearance, the less time she has with herself, to create, and to love. The more importance allocated to a woman’s beauty, the less attention paid to other qualities of her identity."
-      },
-      {
-        file: 'No Brainer.jpg',
-        name: 'No Brainer',
-        medium: 'Acrylic on canvas, 2025',
-        fullWidth: true,
-        sideBySide: true,
-        imgMuchBigger: true,
-        spaceAround: true,
-        desc: "Are you thinking with your dick for biological, evolutionary, or societal reasons?\n\nWhat do we do in the inevitable case that it's actually a fun mix of all three?\n\nWhile we figure this out, do you mind not looking at my boobs, please?"
       },
       {
         file: 'Do You Really?.jpeg',
@@ -96,21 +81,6 @@ const SITE_DATA = {
         file: 'Lol.jpg',
         name: 'Lol',
         medium: 'Mixed media on canvas, 2026',
-      },
-      {
-        file: 'Yikes!.jpeg',
-        name: 'Yikes!',
-        medium: 'Mixed media on canvas, 2024',
-        bigger: true,
-        desc: 'Through suffering, we cause suffering.\nWe must learn to transform our suffering into love to heal ourselves and others.\nTo do so, one must have grace.'
-      },
-      {
-        file: 'Commission Peice.jpg',
-        name: 'Commission Piece',
-        medium: 'Acrylic on canvas, 2024',
-        fullWidth: true,
-        shrink: true,
-        desc: ''
       }
     ]
   },

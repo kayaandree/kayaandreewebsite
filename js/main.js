@@ -331,6 +331,7 @@
           container.appendChild(row);
         }
         row.appendChild(card);
+        if (p.solo) row = null; // solo: keep this painting alone on its row
 
         // cropTop trims a sliver off the top of the artwork (fraction of height).
         var crop = p.cropTop ? 0.055 : 0;
