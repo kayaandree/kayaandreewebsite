@@ -176,24 +176,6 @@ const SITE_DATA = {
           ['1.jpg', ['2.jpg', '3.jpg']],
           ['4.jpg', '5.jpg']
         ]
-      },
-      {
-        key: 'volleyball',
-        folder: 'volleyball',
-        title: 'Integration Weekend, 2025',
-        headingStyle: 'label',
-        images: [
-          'IMG_5503 copie.jpg',
-          'IMG_5521 copie.jpg',
-          'IMG_5570 copie.jpg',
-          'IMG_5721 copie-2.jpg',
-          'IMG_5754 copie-2.jpg'
-        ],
-        // 5 photos: a row of 3 landscapes, then the 2 portraits side by side.
-        layout: [
-          ['IMG_5503 copie.jpg', 'IMG_5521 copie.jpg', 'IMG_5570 copie.jpg'],
-          ['IMG_5721 copie-2.jpg', 'IMG_5754 copie-2.jpg']
-        ]
       }
     ]
   },
